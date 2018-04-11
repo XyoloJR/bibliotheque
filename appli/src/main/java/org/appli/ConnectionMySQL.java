@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ConnectionMySQL {
@@ -13,6 +14,8 @@ public class ConnectionMySQL {
 	private final static String URL = "jdbc:mysql://localhost/bibliotheque";
 	private final static String login = "root";
 	private final static String password = "";
+	private final static String AddLivreRequest = "INSERT INTO livre (titre, annee, auteur, editeur)"
+			+ "VALUES (?,?,?,?)";
 
 	public void connect() throws ClassNotFoundException, FileNotFoundException, IOException {
 
@@ -22,9 +25,6 @@ public class ConnectionMySQL {
 			// La connexion
 			connection = DriverManager.getConnection(URL, login, password);
 			System.out.println("connection à la base réussie");
-
-			ScriptRunner runner = new ScriptRunner(connection, false, false);
-			runner.runScript(new BufferedReader(new FileReader("../src/main/resources/bibliotheque.sql")));
 
 			/*
 			 * stmtJoueur = con.prepareStatement(QUERY_SAVE_JOUEUR);
@@ -52,4 +52,40 @@ public class ConnectionMySQL {
 			}
 		}
 	}
+
+	public void init() {
+		ScriptRunner runner = new ScriptRunner(connection, false, false);
+		try {
+			runner.runScript(new BufferedReader(new FileReader("../src/main/resources/bibliotheque.sql")));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void addLivre(Livre livre) {
+		PreparedStatement stmtLivre;
+		try {
+			stmtLivre = connection.prepareStatement(AddLivreRequest);
+			// Remplir la requête
+			stmtLivre.setString(1, livre.getTitre());
+			stmtLivre.setInt(2, livre.getAnnee());
+			stmtLivre.setString(3, livre.getAuteur());
+			stmtLivre.setString(4, livre.getEditeur());
+			stmtLivre.executeUpdate();
+			stmtLivre.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
 }

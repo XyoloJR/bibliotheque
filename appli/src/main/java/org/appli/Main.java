@@ -6,6 +6,8 @@ import java.io.IOException;
 public class Main {
 
 	public static void main(String[] args) {
+		Controler controler = new Controler();
+
 		ConnectionMySQL connecteur = new ConnectionMySQL();
 		try {
 			connecteur.connect();
