@@ -7,10 +7,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		Controler controler = new Controler();
-
-		ConnectionMySQL connecteur = new ConnectionMySQL();
 		try {
-			connecteur.connect();
+			controler.getConnection().testConnect();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
