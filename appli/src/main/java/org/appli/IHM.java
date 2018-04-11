@@ -166,8 +166,18 @@ public class IHM {
 		tabbedPane.addTab("Gestion des Emprunts", null, TabEmprunt, null);
 		TabEmprunt.setLayout(null);
 
+		listEmprunts = new JList();
+		listEmprunts.setBounds(10, 150, 760, 300);
 		TabEmprunt.add(listEmprunts);
 
+		btnUpdateEmprunts = new JButton("Enregistrer");
+		btnUpdateEmprunts.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnUpdateEmprunts.setForeground(Color.DARK_GRAY);
+		btnUpdateEmprunts.setFont(new Font("Arial", Font.BOLD, 30));
+		btnUpdateEmprunts.setBounds(10, 460, 760, 60);
 		TabEmprunt.add(btnUpdateEmprunts);
 
 		JLabel lblIdDuLivre = new JLabel("ID du Livre");
@@ -211,14 +221,6 @@ public class IHM {
 		/////////////
 
 		// Emprunts
-		btnUpdateEmprunts = new JButton("Enregistrer");
-		btnUpdateEmprunts.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnUpdateEmprunts.setForeground(Color.DARK_GRAY);
-		btnUpdateEmprunts.setFont(new Font("Arial", Font.BOLD, 30));
-		btnUpdateEmprunts.setBounds(10, 460, 760, 60);
 
 		// Ajouter un livre
 
@@ -235,9 +237,6 @@ public class IHM {
 		////////////////////////
 		// Liste des Emprunts //
 		////////////////////////
-
-		listEmprunts = new JList();
-		listEmprunts.setBounds(10, 150, 760, 300);
 
 	}
 }
