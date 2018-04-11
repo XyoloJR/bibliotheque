@@ -166,8 +166,6 @@ public class IHM {
 		tabbedPane.addTab("Gestion des Emprunts", null, TabEmprunt, null);
 		TabEmprunt.setLayout(null);
 
-		listEmprunts = new JList();
-		listEmprunts.setBounds(10, 150, 760, 300);
 		TabEmprunt.add(listEmprunts);
 
 		TabEmprunt.add(btnUpdateEmprunts);
@@ -237,6 +235,9 @@ public class IHM {
 		////////////////////////
 		// Liste des Emprunts //
 		////////////////////////
+
+		listEmprunts = new JList();
+		listEmprunts.setBounds(10, 150, 760, 300);
 
 	}
 }
