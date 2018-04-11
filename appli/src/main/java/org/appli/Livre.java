@@ -8,6 +8,11 @@ public class Livre {
 	private String editeur;
 
 	public Livre(int id, String titre, int annee, String auteur, String editeur) {
+		this.id = id;
+		this.titre = titre;
+		this.annee = annee;
+		this.auteur = auteur;
+		this.editeur = editeur;
 	}
 
 	public int getId() {
