@@ -1,4 +1,4 @@
-package fr.greta.ajs.bibliotheque;
+package org.appli;
 
 import java.awt.EventQueue;
 import java.awt.Font;
