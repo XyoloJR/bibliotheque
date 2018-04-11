@@ -2,5 +2,5 @@
 .project
 .settings/
 target/
-appli/target
-zip/target
+appli/target/
+zip/target/
