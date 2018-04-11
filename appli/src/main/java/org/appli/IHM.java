@@ -1,5 +1,6 @@
 package org.appli;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 
@@ -64,74 +65,88 @@ public class IHM {
 		frame.getContentPane().add(tabbedPane);
 
 		JPanel TabLivre = new JPanel();
+		TabLivre.setBackground(Color.DARK_GRAY);
 		tabbedPane.addTab("Ajouter un Livre", null, TabLivre, null);
 		tabbedPane.setEnabledAt(0, true);
-		TabLivre.setLayout(null);
 
 		JLabel lblTitre = new JLabel("Titre");
-		lblTitre.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitre.setBounds(146, 116, 100, 20);
+		lblTitre.setForeground(Color.WHITE);
+		lblTitre.setHorizontalAlignment(SwingConstants.LEFT);
 		lblTitre.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblTitre.setBounds(32, 60, 100, 20);
-		TabLivre.add(lblTitre);
 
 		textFieldTitre = new JTextField();
-		textFieldTitre.setBounds(136, 60, 86, 20);
-		TabLivre.add(textFieldTitre);
+		textFieldTitre.setBounds(250, 116, 383, 20);
 		textFieldTitre.setColumns(10);
 
 		JLabel lblEditeur = new JLabel("Editeur");
-		lblEditeur.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEditeur.setBounds(146, 152, 100, 20);
+		lblEditeur.setForeground(Color.WHITE);
+		lblEditeur.setHorizontalAlignment(SwingConstants.LEFT);
 		lblEditeur.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblEditeur.setBounds(478, 60, 100, 20);
-		TabLivre.add(lblEditeur);
 
 		textFieldEditeur = new JTextField();
+		textFieldEditeur.setBounds(250, 155, 383, 20);
 		textFieldEditeur.setColumns(10);
-		textFieldEditeur.setBounds(582, 60, 86, 20);
-		TabLivre.add(textFieldEditeur);
 
 		JLabel lblAnnee = new JLabel("Année");
-		lblAnnee.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAnnee.setBounds(146, 193, 100, 20);
+		lblAnnee.setForeground(Color.WHITE);
+		lblAnnee.setHorizontalAlignment(SwingConstants.LEFT);
 		lblAnnee.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblAnnee.setBounds(478, 279, 100, 20);
-		TabLivre.add(lblAnnee);
 
 		textFieldAnnee = new JTextField();
+		textFieldAnnee.setBounds(250, 196, 383, 20);
 		textFieldAnnee.setColumns(10);
-		textFieldAnnee.setBounds(582, 279, 86, 20);
-		TabLivre.add(textFieldAnnee);
 
 		JLabel lblAuteur = new JLabel("Auteur");
+		lblAuteur.setBounds(146, 251, 487, 33);
+		lblAuteur.setForeground(Color.WHITE);
 		lblAuteur.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblAuteur.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAuteur.setBounds(65, 193, 206, 33);
-		TabLivre.add(lblAuteur);
 
 		JLabel lblNom = new JLabel("Nom");
-		lblNom.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNom.setBounds(146, 338, 100, 40);
+		lblNom.setForeground(Color.WHITE);
+		lblNom.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNom.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNom.setBounds(54, 248, 100, 20);
-		TabLivre.add(lblNom);
 
 		textFieldNom = new JTextField();
+		textFieldNom.setBounds(256, 291, 370, 40);
 		textFieldNom.setColumns(10);
-		textFieldNom.setBounds(64, 279, 86, 20);
-		TabLivre.add(textFieldNom);
 
 		JLabel lblPrenom = new JLabel("Prénom");
-		lblPrenom.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPrenom.setBounds(146, 295, 100, 40);
+		lblPrenom.setForeground(Color.WHITE);
+		lblPrenom.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPrenom.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblPrenom.setBounds(175, 248, 100, 20);
-		TabLivre.add(lblPrenom);
 
 		textFieldPrenom = new JTextField();
+		textFieldPrenom.setBounds(256, 340, 370, 40);
 		textFieldPrenom.setColumns(10);
-		textFieldPrenom.setBounds(185, 279, 86, 20);
-		TabLivre.add(textFieldPrenom);
 
 		btnAjoutLivre = new JButton("Enregistrer");
+		btnAjoutLivre.setBounds(10, 443, 759, 80);
 		btnAjoutLivre.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnAjoutLivre.setBounds(250, 426, 236, 73);
+
+		JLabel labelLivre = new JLabel("Livre");
+		labelLivre.setBounds(146, 67, 487, 33);
+		labelLivre.setForeground(Color.WHITE);
+		labelLivre.setHorizontalAlignment(SwingConstants.CENTER);
+		labelLivre.setFont(new Font("Tahoma", Font.BOLD, 20));
+		TabLivre.setLayout(null);
+		TabLivre.add(lblNom);
+		TabLivre.add(textFieldPrenom);
+		TabLivre.add(lblPrenom);
+		TabLivre.add(lblAuteur);
+		TabLivre.add(textFieldNom);
+		TabLivre.add(textFieldEditeur);
+		TabLivre.add(textFieldAnnee);
+		TabLivre.add(lblAnnee);
+		TabLivre.add(labelLivre);
+		TabLivre.add(textFieldTitre);
+		TabLivre.add(lblEditeur);
+		TabLivre.add(lblTitre);
 		TabLivre.add(btnAjoutLivre);
 
 		JPanel TabEmprunt = new JPanel();
