@@ -1,6 +1,6 @@
 package org.appli;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Emprunt {
 	private int id;

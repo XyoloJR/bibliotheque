@@ -20,8 +20,11 @@ public class ConnectionMySQL {
 	private final static String AddLivreRequest = "INSERT INTO livre (titre, annee, auteur, editeur)"
 			+ "VALUES (?,?,?,?)";
 
-	private final static String GetEmpruntsRequest = "SELECT * " + "FROM emprunt " + "ORDER BY date_emprunt DESC "
-			+ "WHERE date_retour IS NOT NULL";
+	private final static String GetEmpruntsRequest = "SELECT * " + "FROM emprunt " + "WHERE date_retour IS NULL "
+			+ "ORDER BY date_emprunt DESC ";
+
+	private final static String AddEmpruntRequest = "INSERT INTO emprunt (livre_id, usager, date_emprunt)"
+			+ "VALUES (?,?,?)";
 
 	public void testConnect() throws ClassNotFoundException, FileNotFoundException, IOException {
 
@@ -94,6 +97,41 @@ public class ConnectionMySQL {
 			stmtLivre.setString(4, livre.getEditeur());
 			stmtLivre.executeUpdate();
 			stmtLivre.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			// On ferme la connexion
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (final SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+	}
+
+	public void addEmprunt(Emprunt emprunt) {
+		PreparedStatement stmtEmprunt;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			// La connexion
+			connection = DriverManager.getConnection(URL, login, password);
+			System.out.println("connection à la base réussie");
+
+			stmtEmprunt = connection.prepareStatement(AddEmpruntRequest);
+			// Remplir la requête
+			stmtEmprunt.setInt(1, emprunt.getLivreId());
+			stmtEmprunt.setString(2, emprunt.getUsager());
+			stmtEmprunt.setDate(3, emprunt.getDateEmprunt());
+			stmtEmprunt.executeUpdate();
+			stmtEmprunt.close();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
