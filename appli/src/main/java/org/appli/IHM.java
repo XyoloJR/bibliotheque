@@ -1,10 +1,9 @@
 package org.appli;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,7 +11,6 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 
 public class IHM {
@@ -67,149 +65,89 @@ public class IHM {
 		frame.getContentPane().add(tabbedPane);
 
 		JPanel TabLivre = new JPanel();
+		TabLivre.setBackground(Color.DARK_GRAY);
 		tabbedPane.addTab("Ajouter un Livre", null, TabLivre, null);
 		tabbedPane.setEnabledAt(0, true);
 
 		JLabel lblTitre = new JLabel("Titre");
+		lblTitre.setBounds(146, 116, 100, 20);
+		lblTitre.setForeground(Color.WHITE);
 		lblTitre.setHorizontalAlignment(SwingConstants.LEFT);
 		lblTitre.setFont(new Font("Tahoma", Font.BOLD, 18));
 
 		textFieldTitre = new JTextField();
+		textFieldTitre.setBounds(250, 116, 383, 20);
 		textFieldTitre.setColumns(10);
 
 		JLabel lblEditeur = new JLabel("Editeur");
+		lblEditeur.setBounds(146, 152, 100, 20);
+		lblEditeur.setForeground(Color.WHITE);
 		lblEditeur.setHorizontalAlignment(SwingConstants.LEFT);
 		lblEditeur.setFont(new Font("Tahoma", Font.BOLD, 18));
 
 		textFieldEditeur = new JTextField();
+		textFieldEditeur.setBounds(250, 155, 383, 20);
 		textFieldEditeur.setColumns(10);
 
 		JLabel lblAnnee = new JLabel("Année");
+		lblAnnee.setBounds(146, 193, 100, 20);
+		lblAnnee.setForeground(Color.WHITE);
 		lblAnnee.setHorizontalAlignment(SwingConstants.LEFT);
 		lblAnnee.setFont(new Font("Tahoma", Font.BOLD, 18));
 
 		textFieldAnnee = new JTextField();
+		textFieldAnnee.setBounds(250, 196, 383, 20);
 		textFieldAnnee.setColumns(10);
 
 		JLabel lblAuteur = new JLabel("Auteur");
+		lblAuteur.setBounds(146, 251, 487, 33);
+		lblAuteur.setForeground(Color.WHITE);
 		lblAuteur.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblAuteur.setHorizontalAlignment(SwingConstants.CENTER);
 
 		JLabel lblNom = new JLabel("Nom");
+		lblNom.setBounds(146, 338, 100, 40);
+		lblNom.setForeground(Color.WHITE);
 		lblNom.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNom.setFont(new Font("Tahoma", Font.BOLD, 18));
 
 		textFieldNom = new JTextField();
+		textFieldNom.setBounds(256, 291, 370, 40);
 		textFieldNom.setColumns(10);
 
 		JLabel lblPrenom = new JLabel("Prénom");
+		lblPrenom.setBounds(146, 295, 100, 40);
+		lblPrenom.setForeground(Color.WHITE);
 		lblPrenom.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPrenom.setFont(new Font("Tahoma", Font.BOLD, 18));
 
 		textFieldPrenom = new JTextField();
+		textFieldPrenom.setBounds(256, 340, 370, 40);
 		textFieldPrenom.setColumns(10);
 
 		btnAjoutLivre = new JButton("Enregistrer");
+		btnAjoutLivre.setBounds(10, 443, 759, 80);
 		btnAjoutLivre.setFont(new Font("Tahoma", Font.BOLD, 20));
 
 		JLabel labelLivre = new JLabel("Livre");
+		labelLivre.setBounds(146, 67, 487, 33);
+		labelLivre.setForeground(Color.WHITE);
 		labelLivre.setHorizontalAlignment(SwingConstants.CENTER);
 		labelLivre.setFont(new Font("Tahoma", Font.BOLD, 20));
-		GroupLayout gl_TabLivre = new GroupLayout(TabLivre);
-		gl_TabLivre.setHorizontalGroup(gl_TabLivre
-				.createParallelGroup(Alignment.LEADING).addGroup(gl_TabLivre.createSequentialGroup().addGroup(
-						gl_TabLivre
-								.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING, gl_TabLivre
-										.createSequentialGroup().addGap(32).addGroup(gl_TabLivre
-												.createParallelGroup(Alignment.LEADING).addGroup(gl_TabLivre
-														.createParallelGroup(Alignment.TRAILING)
-														.addGroup(gl_TabLivre.createSequentialGroup().addGap(96)
-																.addComponent(textFieldTitre, GroupLayout.DEFAULT_SIZE,
-																		402, Short.MAX_VALUE))
-														.addGroup(gl_TabLivre.createSequentialGroup().addGap(96)
-																.addComponent(textFieldEditeur,
-																		GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE))
-														.addGroup(gl_TabLivre.createSequentialGroup().addGap(96)
-																.addComponent(textFieldAnnee, GroupLayout.DEFAULT_SIZE,
-																		402, Short.MAX_VALUE))
-														.addGroup(Alignment.LEADING, gl_TabLivre.createSequentialGroup()
-																.addGap(32)
-																.addComponent(lblNom, GroupLayout.PREFERRED_SIZE, 100,
-																		GroupLayout.PREFERRED_SIZE)
-																.addGap(10).addComponent(textFieldPrenom,
-																		GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE))
-														.addComponent(lblAnnee, Alignment.LEADING,
-																GroupLayout.PREFERRED_SIZE, 100,
-																GroupLayout.PREFERRED_SIZE)
-														.addComponent(lblEditeur, Alignment.LEADING,
-																GroupLayout.PREFERRED_SIZE, 100,
-																GroupLayout.PREFERRED_SIZE)
-														.addGroup(Alignment.LEADING, gl_TabLivre.createSequentialGroup()
-																.addGap(32)
-																.addComponent(lblPrenom, GroupLayout.PREFERRED_SIZE,
-																		100, GroupLayout.PREFERRED_SIZE)
-																.addGap(10)
-																.addComponent(textFieldNom, GroupLayout.DEFAULT_SIZE,
-																		356, Short.MAX_VALUE)))
-												.addComponent(lblTitre, GroupLayout.PREFERRED_SIZE, 100,
-														GroupLayout.PREFERRED_SIZE)))
-								.addGroup(Alignment.LEADING,
-										gl_TabLivre.createSequentialGroup().addGap(280).addComponent(btnAjoutLivre,
-												GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)))
-						.addGap(249))
-				.addGroup(Alignment.TRAILING,
-						gl_TabLivre.createSequentialGroup().addContainerGap(291, Short.MAX_VALUE)
-								.addComponent(lblAuteur, GroupLayout.PREFERRED_SIZE, 206, GroupLayout.PREFERRED_SIZE)
-								.addGap(282))
-				.addGroup(Alignment.TRAILING,
-						gl_TabLivre.createSequentialGroup().addContainerGap(298, Short.MAX_VALUE)
-								.addComponent(labelLivre, GroupLayout.PREFERRED_SIZE, 206, GroupLayout.PREFERRED_SIZE)
-								.addGap(275)));
-		gl_TabLivre.setVerticalGroup(gl_TabLivre.createParallelGroup(Alignment.LEADING).addGroup(gl_TabLivre
-				.createSequentialGroup().addContainerGap()
-				.addComponent(labelLivre, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE).addGap(16)
-				.addGroup(gl_TabLivre.createParallelGroup(Alignment.LEADING)
-						.addComponent(textFieldTitre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_TabLivre.createSequentialGroup()
-								.addComponent(lblTitre, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-								.addGap(16)
-								.addGroup(gl_TabLivre.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_TabLivre.createSequentialGroup()
-												.addComponent(lblEditeur, GroupLayout.PREFERRED_SIZE, 20,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(12)
-												.addGroup(gl_TabLivre.createParallelGroup(Alignment.LEADING)
-														.addComponent(textFieldAnnee, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-														.addComponent(lblAnnee, GroupLayout.PREFERRED_SIZE, 20,
-																GroupLayout.PREFERRED_SIZE)))
-										.addComponent(textFieldEditeur, GroupLayout.PREFERRED_SIZE,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-				.addPreferredGap(ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-				.addComponent(lblAuteur, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(ComponentPlacement.UNRELATED)
-				.addGroup(gl_TabLivre.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
-						gl_TabLivre
-								.createSequentialGroup().addGroup(gl_TabLivre.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblPrenom, GroupLayout.PREFERRED_SIZE, 20,
-												GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_TabLivre.createSequentialGroup()
-												.addGap(3).addComponent(textFieldNom, GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-								.addGap(8)
-								.addGroup(gl_TabLivre.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblNom, GroupLayout.PREFERRED_SIZE, 20,
-												GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_TabLivre.createSequentialGroup().addGap(3).addComponent(
-												textFieldPrenom, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)))
-								.addGap(202).addGap(27))
-						.addGroup(Alignment.TRAILING,
-								gl_TabLivre.createSequentialGroup().addComponent(btnAjoutLivre,
-										GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-										.addContainerGap()))));
-		TabLivre.setLayout(gl_TabLivre);
+		TabLivre.setLayout(null);
+		TabLivre.add(lblNom);
+		TabLivre.add(textFieldPrenom);
+		TabLivre.add(lblPrenom);
+		TabLivre.add(lblAuteur);
+		TabLivre.add(textFieldNom);
+		TabLivre.add(textFieldEditeur);
+		TabLivre.add(textFieldAnnee);
+		TabLivre.add(lblAnnee);
+		TabLivre.add(labelLivre);
+		TabLivre.add(textFieldTitre);
+		TabLivre.add(lblEditeur);
+		TabLivre.add(lblTitre);
+		TabLivre.add(btnAjoutLivre);
 
 		JPanel TabEmprunt = new JPanel();
 		tabbedPane.addTab("Gestion des Emprunts", null, TabEmprunt, null);
