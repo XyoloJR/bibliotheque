@@ -4,16 +4,20 @@ import java.util.Date;
 
 public class Emprunt {
 	private int id;
-	private int livre_id;
+	private int livreId;
 	private String usager;
-	private Date date_emprunt;
-	private Date date_retour = null;
+	private Date dateEmprunt;
+	private Date dateRetour;
 
 	public Emprunt(int id, int livre_id, String usager, Date date_emprunt) {
 		this.id = id;
-		this.livre_id = livre_id;
+		livreId = livre_id;
 		this.usager = usager;
-		this.date_emprunt = date_emprunt;
+		dateEmprunt = date_emprunt;
+	}
+
+	public void rendre(Date date_retour) {
+
 	}
 
 	public int getId() {
@@ -24,12 +28,12 @@ public class Emprunt {
 		this.id = id;
 	}
 
-	public int getLivre_id() {
-		return livre_id;
+	public int getLivreId() {
+		return livreId;
 	}
 
-	public void setLivre_id(int livre_id) {
-		this.livre_id = livre_id;
+	public void setLivreId(int livreId) {
+		this.livreId = livreId;
 	}
 
 	public String getUsager() {
@@ -40,12 +44,20 @@ public class Emprunt {
 		this.usager = usager;
 	}
 
-	public Date getDate_emprunt() {
-		return date_emprunt;
+	public Date getDateEmprunt() {
+		return dateEmprunt;
 	}
 
-	public void setDate_emprunt(Date date_emprunt) {
-		this.date_emprunt = date_emprunt;
+	public void setDateEmprunt(Date dateEmprunt) {
+		this.dateEmprunt = dateEmprunt;
+	}
+
+	public Date getDateRetour() {
+		return dateRetour;
+	}
+
+	public void setDateRetour(Date dateRetour) {
+		this.dateRetour = dateRetour;
 	}
 
 }
