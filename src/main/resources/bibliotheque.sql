@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 11 avr. 2018 à 08:41
+-- Généré le :  mer. 11 avr. 2018 à 12:25
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -34,10 +34,18 @@ CREATE TABLE IF NOT EXISTS `emprunt` (
   `livre_id` int(11) NOT NULL,
   `usager` varchar(100) NOT NULL,
   `date_emprunt` date NOT NULL,
-  `date_retour` date NOT NULL,
+  `date_retour` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `livre_id` (`livre_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `emprunt`
+--
+
+INSERT INTO `emprunt` (`id`, `livre_id`, `usager`, `date_emprunt`, `date_retour`) VALUES
+(1, 10, 'Aymeric', '2018-04-08', NULL),
+(2, 4, 'Imène', '2018-04-09', NULL);
 
 -- --------------------------------------------------------
 
@@ -49,11 +57,27 @@ DROP TABLE IF EXISTS `livre`;
 CREATE TABLE IF NOT EXISTS `livre` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `titre` varchar(100) NOT NULL,
-  `annee` tinyint(4) NOT NULL,
+  `annee` int(4) NOT NULL,
   `auteur` varchar(100) NOT NULL,
   `editeur` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `livre`
+--
+
+INSERT INTO `livre` (`id`, `titre`, `annee`, `auteur`, `editeur`) VALUES
+(1, 'Le Vieil Homme et la Mer', 1952, 'Ernest Hemingway', 'Charles Scribner\'s Sons'),
+(2, 'Gargantua', 1532, 'François Rabelais', 'Inconnu'),
+(3, 'Pantagruel', 1534, 'François Rabelais', 'Inconnu'),
+(4, 'Moby Dick', 1851, 'Herman Melville', 'Richard Bentley'),
+(5, 'Dragon Ball vol.1', 1984, 'Akira Toriyama', 'Glénat'),
+(6, 'Rendez-vous avec Rama', 1973, 'Arthur C. Clarke', 'Gollancz'),
+(7, 'Illiade', -850, 'Homère', 'Inconnu'),
+(8, 'Odyssée', -850, 'Homère', 'Inconnu'),
+(9, 'Fleur de nave vinaigrette', 1962, 'Frédéric Dard', 'Fleuve Noir'),
+(10, 'Les clefs du pouvoir sont dans la boîte à gants', 1981, 'Frédéric Dard', 'Fleuve Noir');
 
 --
 -- Contraintes pour les tables déchargées
