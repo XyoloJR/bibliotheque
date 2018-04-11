@@ -3,6 +3,8 @@ package org.appli;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,17 +18,20 @@ import javax.swing.SwingConstants;
 public class IHM {
 
 	private JFrame frame;
-	private JTextField textFieldTitre;
-	private JTextField textFieldEditeur;
-	private JTextField textFieldAnnee;
-	private JTextField textFieldNom;
-	private JTextField textFieldPrenom;
-	private JTextField textFieldLivreID;
-	private JTextField textFieldUsager;
-	private JTextField textFieldDateEmprunt;
-	private JButton btnUpdateEmprunts;
-	private JButton btnAjoutLivre;
-	private JList<String> listEmprunts;
+
+	JTextField textFieldTitre;
+	JTextField textFieldEditeur;
+	JTextField textFieldAnnee;
+	JTextField textFieldNom;
+	JTextField textFieldPrenom;
+	JTextField textFieldLivreID;
+	JTextField textFieldUsager;
+	JTextField textFieldDateEmprunt;
+
+	JButton btnUpdateEmprunts = new JButton("Enregistrer");
+	JButton btnAjoutLivre = new JButton("Enregistrer");
+
+	JList<String> listEmprunts;
 
 	/**
 	 * Launch the application.
@@ -59,6 +64,10 @@ public class IHM {
 		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+
+		///////////////////////
+		// Données Graphiques//
+		///////////////////////
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(0, 0, 784, 562);
@@ -128,7 +137,7 @@ public class IHM {
 		btnAjoutLivre = new JButton("Enregistrer");
 		btnAjoutLivre.setForeground(Color.DARK_GRAY);
 		btnAjoutLivre.setBackground(Color.LIGHT_GRAY);
-		btnAjoutLivre.setBounds(10, 443, 759, 80);
+		btnAjoutLivre.setBounds(10, 460, 760, 60);
 		btnAjoutLivre.setFont(new Font("Arial", Font.BOLD, 30));
 
 		JLabel labelLivre = new JLabel("Livre");
@@ -149,6 +158,7 @@ public class IHM {
 		TabLivre.add(textFieldTitre);
 		TabLivre.add(lblEditeur);
 		TabLivre.add(lblTitre);
+
 		TabLivre.add(btnAjoutLivre);
 
 		JPanel TabEmprunt = new JPanel();
@@ -157,13 +167,9 @@ public class IHM {
 		TabEmprunt.setLayout(null);
 
 		listEmprunts = new JList();
-		listEmprunts.setBounds(10, 149, 759, 336);
+		listEmprunts.setBounds(10, 150, 760, 300);
 		TabEmprunt.add(listEmprunts);
 
-		btnUpdateEmprunts = new JButton("Enregistrer");
-		btnUpdateEmprunts.setForeground(Color.DARK_GRAY);
-		btnUpdateEmprunts.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnUpdateEmprunts.setBounds(10, 492, 759, 31);
 		TabEmprunt.add(btnUpdateEmprunts);
 
 		JLabel lblIdDuLivre = new JLabel("ID du Livre");
@@ -201,5 +207,36 @@ public class IHM {
 		labelDateEmprunt.setFont(new Font("Arial", Font.BOLD, 18));
 		labelDateEmprunt.setBounds(391, 87, 155, 40);
 		TabEmprunt.add(labelDateEmprunt);
+
+		/////////////
+		// Boutons //
+		/////////////
+
+		// Emprunts
+		btnUpdateEmprunts = new JButton("Enregistrer");
+		btnUpdateEmprunts.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnUpdateEmprunts.setForeground(Color.DARK_GRAY);
+		btnUpdateEmprunts.setFont(new Font("Arial", Font.BOLD, 30));
+		btnUpdateEmprunts.setBounds(10, 460, 760, 60);
+
+		// Ajouter un livre
+
+		btnAjoutLivre = new JButton("Enregistrer");
+		btnAjoutLivre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnAjoutLivre.setForeground(Color.DARK_GRAY);
+		btnAjoutLivre.setBackground(Color.LIGHT_GRAY);
+		btnAjoutLivre.setBounds(10, 460, 760, 60);
+		btnAjoutLivre.setFont(new Font("Arial", Font.BOLD, 30));
+
+		////////////////////////
+		// Liste des Emprunts //
+		////////////////////////
+
 	}
 }
