@@ -167,7 +167,7 @@ public class ConnectionMySQL {
 			connection = DriverManager.getConnection(URL, login, password);
 			System.out.println("connection à la base réussie");
 
-			stmtEmprunt = connection.prepareStatement(AddEmpruntRequest);
+			stmtEmprunt = connection.prepareStatement(UpdateEmpruntRequest);
 			// Remplir la requête
 			stmtEmprunt.setDate(1, dateRetour);
 			stmtEmprunt.setInt(2, emprunt.getId());

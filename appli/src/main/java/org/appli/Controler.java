@@ -36,12 +36,15 @@ public class Controler {
 
 	public void retour(JTable tableEmprunts) {
 		for (int i = 0; i < tableEmprunts.getRowCount(); i++) {
+			System.out.println(tableEmprunts.getValueAt(i, 4));
 			if (tableEmprunts.getValueAt(i, 4) != null) {
+				System.out.println(tableEmprunts.getValueAt(i, 4));
 				String dateString = tableEmprunts.getValueAt(i, 4).toString();
 				if (!"".equals(dateString)) {
+					System.out.println(dateString);
 					Date dateRetour = stringToDate(dateString);
 					rendre(bibliotheque.getEmprunts().get(i), dateRetour);
-					ihm.refreshScreen();
+					ihm.setEmprunts(empruntsToArray());
 
 				}
 			}
@@ -50,7 +53,7 @@ public class Controler {
 
 	public void rendre(Emprunt emprunt, Date dateRetour) {
 		connection.updateEmprunt(emprunt, dateRetour);
-		bibliotheque.supEmprunt(emprunt);
+		bibliotheque.setEmprunts(connection.getEmprunts());
 	}
 
 	public Object[][] empruntsToArray() {
@@ -84,6 +87,7 @@ public class Controler {
 		connection = new ConnectionMySQL();
 		bibliotheque = new Bibliotheque(connection.getLivres(), connection.getEmprunts());
 		ihm = new IHM(this);
+		ihm.setEmprunts(empruntsToArray());
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
