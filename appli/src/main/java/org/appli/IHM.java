@@ -37,6 +37,15 @@ public class IHM {
 	String[] entetes = { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" };
 	Object[][] emprunts = {};
 
+	public Object[][] getEmprunts() {
+		return emprunts;
+	}
+
+	public void setEmprunts(Object[][] emprunts) {
+		this.emprunts = emprunts;
+		refreshScreen();
+	}
+
 	/**
 	 * Launch the application.
 	 */
@@ -261,8 +270,8 @@ public class IHM {
 		textFieldLivreID.setText("");
 		textFieldUsager.setText("");
 		textFieldDateEmprunt.setText("");
-
-		tableEmprunts.setModel(new DefaultTableModel(emprunts, entetes));
+		tableEmprunts.setModel(new DefaultTableModel(emprunts,
+				new String[] { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" }));
 
 	}
 }
