@@ -189,7 +189,7 @@ public class IHM {
 
 		TabLivre.add(btnAjoutLivre);
 
-		lblVert = new JLabel("New label");
+		lblVert = new JLabel("");
 		lblVert.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblVert.setForeground(Color.GREEN);
 		lblVert.setHorizontalAlignment(SwingConstants.CENTER);
@@ -263,13 +263,6 @@ public class IHM {
 		lblRouge.setVisible(false);
 		TabEmprunt.add(lblRouge);
 
-		lblVert = new JLabel("Livre déjà emprunté !!");
-		lblVert.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVert.setFont(new Font("Arial Black", Font.PLAIN, 20));
-		lblVert.setForeground(Color.GREEN);
-		lblVert.setBounds(200, 407, 378, 51);
-		lblVert.setVisible(false);
-		TabLivre.add(lblVert);
 		/////////////
 		// Boutons //
 		/////////////
@@ -306,6 +299,7 @@ public class IHM {
 					textFieldEditeur.setText("");
 					textFieldAnnee.setText("");
 					textFieldPrenom.setText("");
+					textFieldNom.setText("");
 
 				} else {
 					lblVert.setText("Information(s) manquante(s)");

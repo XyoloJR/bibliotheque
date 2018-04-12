@@ -33,21 +33,22 @@ public class Controler {
 			ihm.getLblRouge().setText("le livre est bien emprunté");
 			ihm.getLblRouge().setVisible(true);
 		} else {
-			System.out.println("livre déjà emprunté");
+			ihm.getLblRouge().setText("livre déjà emprunté");
+			ihm.getLblRouge().setVisible(true);
 		}
 	}
 
 	public void retour(JTable tableEmprunts) {
 		for (int i = 0; i < tableEmprunts.getRowCount(); i++) {
-			System.out.println(tableEmprunts.getValueAt(i, 4));
 			if (tableEmprunts.getValueAt(i, 4) != null) {
-				System.out.println(tableEmprunts.getValueAt(i, 4));
 				String dateString = tableEmprunts.getValueAt(i, 4).toString();
 				if (!"".equals(dateString)) {
 					System.out.println(dateString);
 					Date dateRetour = stringToDate(dateString);
 					rendre(bibliotheque.getEmprunts().get(i), dateRetour);
 					ihm.setEmprunts(empruntsToArray());
+					ihm.getLblRouge().setText("le livre est bien rendu");
+					ihm.getLblRouge().setVisible(true);
 				}
 			}
 		}
