@@ -22,7 +22,7 @@ public class ConnectionMySQL {
 
 	private final static String GetEmpruntsRequest = "SELECT * " + "FROM emprunt " + "WHERE date_retour IS NULL "
 			+ "ORDER BY date_emprunt DESC ";
-
+	private final static String GetLivresRequest = "SELECT * " + "FROM livre";
 	private final static String AddEmpruntRequest = "INSERT INTO emprunt (livre_id, usager, date_emprunt)"
 			+ "VALUES (?,?,?)";
 
@@ -190,4 +190,40 @@ public class ConnectionMySQL {
 		return list;
 	}
 
+	public ArrayList<Livre> getLivres() {
+		ArrayList<Livre> list = new ArrayList<Livre>();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			// La connexion
+			connection = DriverManager.getConnection(URL, login, password);
+			System.out.println("connection à la base réussie");
+			Statement stmtEmprunts = connection.createStatement();
+			// Remplir la requête
+			ResultSet rs = stmtEmprunts.executeQuery(GetLivresRequest);
+			while (rs.next()) {
+				Livre livre = new Livre(rs.getInt("id"), rs.getString("titre"), rs.getInt("annee"),
+						rs.getString("auteur"), rs.getString("editeur"));
+				list.add(livre);
+				System.out.println();
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			// On ferme la connexion
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (final SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		return list;
+	}
 }
