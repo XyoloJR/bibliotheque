@@ -31,18 +31,6 @@ public class IHM {
 	JTextField textFieldUsager;
 	JTextField textFieldDateEmprunt;
 
-	JLabel lblRouge;
-
-	public JLabel getLblRouge() {
-		return lblRouge;
-	}
-
-	public JLabel getLblVert() {
-		return lblVert;
-	}
-
-	JLabel lblVert;
-
 	JButton btnUpdateEmprunts = new JButton("Enregistrer");
 	JButton btnAjoutLivre = new JButton("Enregistrer");
 
@@ -100,7 +88,7 @@ public class IHM {
 		tabbedPane.setEnabledAt(0, true);
 
 		JLabel lblTitre = new JLabel("Titre");
-		lblTitre.setBounds(129, 90, 100, 40);
+		lblTitre.setBounds(60, 86, 100, 40);
 		lblTitre.setForeground(Color.WHITE);
 		lblTitre.setHorizontalAlignment(SwingConstants.LEFT);
 		lblTitre.setFont(new Font("Arial", Font.BOLD, 18));
@@ -112,53 +100,53 @@ public class IHM {
 		btnAjoutLivre.setFont(new Font("Arial", Font.BOLD, 30));
 
 		textFieldTitre = new JTextField();
-		textFieldTitre.setBounds(233, 90, 383, 40);
+		textFieldTitre.setBounds(160, 86, 500, 40);
 		textFieldTitre.setColumns(10);
 
 		JLabel lblEditeur = new JLabel("Editeur");
-		lblEditeur.setBounds(129, 141, 100, 40);
+		lblEditeur.setBounds(60, 141, 100, 40);
 		lblEditeur.setForeground(Color.WHITE);
 		lblEditeur.setHorizontalAlignment(SwingConstants.LEFT);
 		lblEditeur.setFont(new Font("Arial", Font.BOLD, 18));
 
 		textFieldEditeur = new JTextField();
-		textFieldEditeur.setBounds(233, 144, 383, 40);
+		textFieldEditeur.setBounds(161, 141, 500, 40);
 		textFieldEditeur.setColumns(10);
 
 		JLabel lblAnnee = new JLabel("Année");
-		lblAnnee.setBounds(129, 196, 100, 40);
+		lblAnnee.setBounds(60, 196, 100, 40);
 		lblAnnee.setForeground(Color.WHITE);
 		lblAnnee.setHorizontalAlignment(SwingConstants.LEFT);
 		lblAnnee.setFont(new Font("Arial", Font.BOLD, 18));
 
 		textFieldAnnee = new JTextField();
-		textFieldAnnee.setBounds(233, 198, 383, 40);
+		textFieldAnnee.setBounds(160, 196, 500, 40);
 		textFieldAnnee.setColumns(10);
 
 		JLabel lblAuteur = new JLabel("Auteur");
-		lblAuteur.setBounds(233, 261, 377, 40);
+		lblAuteur.setBounds(186, 257, 400, 40);
 		lblAuteur.setForeground(Color.WHITE);
 		lblAuteur.setFont(new Font("Arial", Font.BOLD, 20));
 		lblAuteur.setHorizontalAlignment(SwingConstants.CENTER);
 
 		JLabel lblNom = new JLabel("Nom");
-		lblNom.setBounds(129, 366, 100, 40);
+		lblNom.setBounds(60, 366, 100, 40);
 		lblNom.setForeground(Color.WHITE);
 		lblNom.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNom.setFont(new Font("Arial", Font.BOLD, 18));
 
 		textFieldPrenom = new JTextField();
-		textFieldPrenom.setBounds(233, 311, 383, 40);
+		textFieldPrenom.setBounds(160, 316, 500, 40);
 		textFieldPrenom.setColumns(10);
 
 		JLabel lblPrenom = new JLabel("Prénom");
-		lblPrenom.setBounds(129, 315, 100, 40);
+		lblPrenom.setBounds(60, 316, 100, 40);
 		lblPrenom.setForeground(Color.WHITE);
 		lblPrenom.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPrenom.setFont(new Font("Arial", Font.BOLD, 18));
 
 		textFieldNom = new JTextField();
-		textFieldNom.setBounds(233, 366, 383, 40);
+		textFieldNom.setBounds(161, 366, 500, 40);
 		textFieldNom.setColumns(10);
 
 		btnAjoutLivre = new JButton("Enregistrer");
@@ -167,11 +155,11 @@ public class IHM {
 		btnAjoutLivre.setBounds(10, 460, 760, 60);
 		btnAjoutLivre.setFont(new Font("Arial", Font.BOLD, 30));
 
-		JLabel labelLivre = new JLabel("Livre");
-		labelLivre.setBounds(233, 39, 383, 40);
-		labelLivre.setForeground(Color.WHITE);
-		labelLivre.setHorizontalAlignment(SwingConstants.CENTER);
-		labelLivre.setFont(new Font("Arial", Font.BOLD, 20));
+		JLabel lblLivre = new JLabel("Livre");
+		lblLivre.setBounds(186, 35, 400, 40);
+		lblLivre.setForeground(Color.WHITE);
+		lblLivre.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLivre.setFont(new Font("Arial", Font.BOLD, 20));
 		TabLivre.setLayout(null);
 		TabLivre.add(lblNom);
 		TabLivre.add(textFieldNom);
@@ -181,20 +169,12 @@ public class IHM {
 		TabLivre.add(textFieldEditeur);
 		TabLivre.add(textFieldAnnee);
 		TabLivre.add(lblAnnee);
-		TabLivre.add(labelLivre);
+		TabLivre.add(lblLivre);
 		TabLivre.add(textFieldTitre);
 		TabLivre.add(lblEditeur);
 		TabLivre.add(lblTitre);
 
 		TabLivre.add(btnAjoutLivre);
-
-		lblVert = new JLabel("New label");
-		lblVert.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblVert.setForeground(Color.GREEN);
-		lblVert.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVert.setBounds(10, 410, 760, 40);
-		lblVert.setVisible(false);
-		TabLivre.add(lblVert);
 
 		JPanel TabEmprunt = new JPanel();
 		TabEmprunt.setBackground(Color.DARK_GRAY);
@@ -220,12 +200,12 @@ public class IHM {
 		textFieldLivreID.setBounds(141, 30, 240, 40);
 		TabEmprunt.add(textFieldLivreID);
 
-		JLabel labelUsager = new JLabel("Usager");
-		labelUsager.setForeground(Color.WHITE);
-		labelUsager.setHorizontalAlignment(SwingConstants.LEFT);
-		labelUsager.setFont(new Font("Arial", Font.BOLD, 18));
-		labelUsager.setBounds(10, 87, 128, 40);
-		TabEmprunt.add(labelUsager);
+		JLabel lblUsager = new JLabel("Usager");
+		lblUsager.setForeground(Color.WHITE);
+		lblUsager.setHorizontalAlignment(SwingConstants.LEFT);
+		lblUsager.setFont(new Font("Arial", Font.BOLD, 18));
+		lblUsager.setBounds(10, 87, 128, 40);
+		TabEmprunt.add(lblUsager);
 
 		textFieldUsager = new JTextField();
 		textFieldUsager.setColumns(10);
@@ -251,12 +231,11 @@ public class IHM {
 
 		TabEmprunt.add(tableEmprunts);
 
-		lblRouge = new JLabel("Livre déjà emprunté !!");
+		JLabel lblRouge = new JLabel("Livre déjà emprunté !!");
 		lblRouge.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRouge.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblRouge.setForeground(Color.RED);
 		lblRouge.setBounds(391, 11, 378, 68);
-		lblRouge.setVisible(false);
 		TabEmprunt.add(lblRouge);
 
 		/////////////
@@ -266,17 +245,13 @@ public class IHM {
 		// Emprunts
 		btnUpdateEmprunts.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (textFieldLivreID.getText().length() > 0 && textFieldUsager.getText().length() > 0
-						&& textFieldDateEmprunt.getText().length() > 0) {
-					int livreId = Integer.valueOf(textFieldLivreID.getText());
-					String usager = textFieldUsager.getText();
-					Date dateEmprunt = controler.stringToDate(textFieldDateEmprunt.getText());
+				int livreId = Integer.valueOf(textFieldLivreID.getText());
+				String usager = textFieldUsager.getText();
+				Date dateEmprunt = controler.stringToDate(textFieldDateEmprunt.getText());
+				if (livreId > 0 && usager != null && dateEmprunt != null) {
 					controler.addEmprunt(livreId, usager, dateEmprunt);
-					lblRouge.setVisible(false);
-
 				} else {
-					lblRouge.setText("veuillez remplir tous les champs");
-					lblRouge.setVisible(true);
+
 				}
 
 				controler.retour(tableEmprunts);
@@ -286,17 +261,17 @@ public class IHM {
 
 		btnAjoutLivre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (textFieldTitre.getText().length() > 0 && textFieldAnnee.getText().length() > 0
-						&& textFieldNom.getText().length() > 0 && textFieldEditeur.getText().length() > 0) {
-					String titre = textFieldTitre.getText();
-					int annee = Integer.valueOf(textFieldAnnee.getText());
-					String auteur = textFieldPrenom.getText() + " " + textFieldNom.getText();
-					String editeur = textFieldEditeur.getText();
+				String titre = textFieldTitre.getText();
+				int annee = Integer.valueOf(textFieldAnnee.getText());
+				String auteur = textFieldPrenom.getText() + " " + textFieldNom.getText();
+				String editeur = textFieldEditeur.getText();
+				if (titre != null && textFieldAnnee.getText() != null && auteur != null && editeur != null) {
 					controler.addLivre(titre, annee, auteur, editeur);
 					textFieldTitre.setText(null);
 					textFieldEditeur.setText("");
 					textFieldAnnee.setText("");
 					textFieldPrenom.setText("");
+<<<<<<< HEAD
 				} else {
 					lblVert.setText("Information(s) manquante(s)");
 					lblVert.setVisible(true);
@@ -304,7 +279,13 @@ public class IHM {
 				}
 
 			}
+=======
+					textFieldNom.setText("");
 
+				}
+>>>>>>> 162a9ce48cd20df4277cfa8d1a6e6e425a9245f5
+
+			}
 		});
 
 		////////////////////////
