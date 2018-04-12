@@ -2,6 +2,7 @@ package org.appli;
 
 import java.awt.EventQueue;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Controler {
 	private IHM ihm;
@@ -27,6 +28,19 @@ public class Controler {
 	public void rendre(Emprunt emprunt, Date dateRetour) {
 		connection.updateEmprunt(emprunt, dateRetour);
 		bibliotheque.supEmprunt(emprunt);
+	}
+
+	public Object[][] empruntsToArray() {
+		ArrayList<Emprunt> emprunts = bibliotheque.getEmprunts();
+		Object[][] tabEmprunts = new Object[emprunts.size()][4];
+		for (int i = 0; i < emprunts.size(); i++) {
+			Emprunt emprunt = emprunts.get(i);
+			tabEmprunts[i][0] = emprunt.getId();
+			tabEmprunts[i][1] = emprunt.getLivreId();
+			tabEmprunts[i][2] = emprunt.getUsager();
+			tabEmprunts[i][3] = emprunt.getDateEmprunt();
+		}
+		return tabEmprunts;
 	}
 
 	public Controler() {

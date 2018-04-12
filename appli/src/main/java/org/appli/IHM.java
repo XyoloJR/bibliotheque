@@ -37,6 +37,15 @@ public class IHM {
 	String[] entetes = { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" };
 	Object[][] emprunts = {};
 
+	public Object[][] getEmprunts() {
+		return emprunts;
+	}
+
+	public void setEmprunts(Object[][] emprunts) {
+		this.emprunts = emprunts;
+		refreshScreen();
+	}
+
 	/**
 	 * Launch the application.
 	 */
@@ -220,6 +229,14 @@ public class IHM {
 		tableEmprunts.setBounds(10, 138, 759, 310);
 
 		TabEmprunt.add(tableEmprunts);
+
+		JLabel lblRouge = new JLabel("Livre déjà emprunté !!");
+		lblRouge.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRouge.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		lblRouge.setForeground(Color.RED);
+		lblRouge.setBounds(391, 11, 378, 68);
+		TabEmprunt.add(lblRouge);
+
 		/////////////
 		// Boutons //
 		/////////////
@@ -261,8 +278,8 @@ public class IHM {
 		textFieldLivreID.setText("");
 		textFieldUsager.setText("");
 		textFieldDateEmprunt.setText("");
-
-		tableEmprunts.setModel(new DefaultTableModel(emprunts, entetes));
+		tableEmprunts.setModel(new DefaultTableModel(emprunts,
+				new String[] { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" }));
 
 	}
 }
