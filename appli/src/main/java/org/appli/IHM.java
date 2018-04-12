@@ -1,7 +1,6 @@
 package org.appli;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class IHM {
 
 	private JFrame frame;
+	private Controler controler;
 
 	JTextField textFieldTitre;
 	JTextField textFieldEditeur;
@@ -40,18 +40,6 @@ public class IHM {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IHM window = new IHM();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	///////////////
 	// Actual App//
@@ -61,7 +49,8 @@ public class IHM {
 		return frame;
 	}
 
-	public IHM() {
+	public IHM(Controler controler) {
+		this.controler = controler;
 		initialize();
 		refreshScreen();
 	}
@@ -238,12 +227,26 @@ public class IHM {
 		// Emprunts
 		btnUpdateEmprunts.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 			}
 		});
 		// Ajouter un livre
 
 		btnAjoutLivre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String titre = textFieldTitre.getText();
+				int annee = Integer.valueOf(textFieldAnnee.getText());
+				String auteur = textFieldPrenom.getText() + " " + textFieldNom.getText();
+				String editeur = textFieldEditeur.getText();
+				if (titre != null && textFieldAnnee.getText() != null && auteur != null && editeur != null) {
+					controler.addLivre(titre, annee, auteur, editeur);
+					textFieldTitre.setText(null);
+					textFieldEditeur.setText("");
+					textFieldAnnee.setText("");
+					textFieldNom.setText("");
+					textFieldPrenom.setText("");
+				}
+
 			}
 		});
 
@@ -254,13 +257,7 @@ public class IHM {
 	}
 
 	private void refreshScreen() {
-		textFieldTitre.setText("");
-		textFieldTitre.setText("");
-		textFieldTitre.setText("");
-		textFieldEditeur.setText("");
-		textFieldAnnee.setText("");
-		textFieldNom.setText("");
-		textFieldPrenom.setText("");
+
 		textFieldLivreID.setText("");
 		textFieldUsager.setText("");
 		textFieldDateEmprunt.setText("");

@@ -14,6 +14,12 @@ public class Bibliotheque {
 		ArrayList<Emprunt> emprunts = new ArrayList<Emprunt>();
 	}
 
+	public Bibliotheque(ArrayList<Livre> livres, ArrayList<Emprunt> emprunts) {
+		super();
+		this.livres = livres;
+		this.emprunts = emprunts;
+	}
+
 	public void addLivre(Livre livre) {
 		livres.add(livre);
 	}
