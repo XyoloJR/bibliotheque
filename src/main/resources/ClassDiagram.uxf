@@ -36,10 +36,10 @@
 -livres : ArrayList&lt;Livre&gt;
 -emprunts : ArrayList&lt;Emprunt&gt;
 --
-addLivre(Livre) : void
-addEmprunt(Emprunt) : void
-update() : void
-init() : void
++addLivre(Livre) : void
++addEmprunt(Emprunt) : void
++isDispo(Livre) : boolean
++supEmprunt(Emprunt) : void
 --
 </panel_attributes>
     <additional_attributes/>
@@ -47,7 +47,7 @@ init() : void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
+      <x>10</x>
       <y>40</y>
       <w>240</w>
       <h>280</h>
@@ -63,6 +63,7 @@ init() : void
 +init() : void
 +addLivre(Livre) : void
 +addEmprunt(Emprunt) : void
++updateEmprunt(Emprumt, dateRetour) : void
 +getLivres() : ArrayList&lt;Livre&gt;
 +getEmprunts() : ArrayList&lt;Emprunt&gt;
 --
@@ -84,9 +85,8 @@ init() : void
 -dateEmprunt: Date
 -dateRetour: Date
 -livre : Livre
-
 --
-rendre(Date) : void
+
 --
 </panel_attributes>
     <additional_attributes/>
@@ -123,7 +123,7 @@ rendre(Date) : void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>340</x>
+      <x>320</x>
       <y>40</y>
       <w>210</w>
       <h>280</h>
@@ -134,9 +134,10 @@ rendre(Date) : void
 -connection : ConnectionMySQL
 -ihm : IHM
 --
-+addLivre()
-+addEmprunt()
-+update()
++addLivre(titre, annee, auteur, editeur) : void
++addEmprunt(livreID, usager, dateEmprunt) : void
++rendre(emprunt, dateRetour) : void
+
 --
 </panel_attributes>
     <additional_attributes/>
@@ -168,24 +169,24 @@ m2=1..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
+      <x>520</x>
       <y>140</y>
-      <w>120</w>
+      <w>140</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
+      <x>240</x>
       <y>140</y>
-      <w>90</w>
+      <w>100</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
