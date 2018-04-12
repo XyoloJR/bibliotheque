@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -234,22 +235,25 @@ public class IHM {
 
 		textFieldDateEmprunt = new JTextField();
 		textFieldDateEmprunt.setColumns(10);
-		textFieldDateEmprunt.setBounds(548, 90, 221, 40);
+		textFieldDateEmprunt.setBounds(548, 90, 222, 40);
 		TabEmprunt.add(textFieldDateEmprunt);
 
-		JLabel labelDateEmprunt = new JLabel("Date d'emprunt");
+		JLabel labelDateEmprunt = new JLabel("Date d'Emprunt");
 		labelDateEmprunt.setForeground(Color.WHITE);
 		labelDateEmprunt.setHorizontalAlignment(SwingConstants.CENTER);
 		labelDateEmprunt.setFont(new Font("Arial", Font.BOLD, 18));
 		labelDateEmprunt.setBounds(391, 90, 155, 40);
 		TabEmprunt.add(labelDateEmprunt);
 
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 138, 759, 310);
+		TabEmprunt.add(scrollPane);
+
 		tableEmprunts = new JTable();
+		scrollPane.setViewportView(tableEmprunts);
+		tableEmprunts.setSurrendersFocusOnKeystroke(true);
 		tableEmprunts.setBorder(new LineBorder(new Color(51, 51, 51), 3, true));
 		tableEmprunts.setCellSelectionEnabled(true);
-		tableEmprunts.setBounds(10, 138, 759, 310);
-
-		TabEmprunt.add(tableEmprunts);
 
 		lblRouge = new JLabel("Livre déjà emprunté !!");
 		lblRouge.setHorizontalAlignment(SwingConstants.CENTER);
@@ -259,6 +263,12 @@ public class IHM {
 		lblRouge.setVisible(false);
 		TabEmprunt.add(lblRouge);
 
+		JLabel lblVert = new JLabel("Livre déjà emprunté !!");
+		lblVert.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVert.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		lblVert.setForeground(Color.GREEN);
+		lblVert.setBounds(200, 407, 378, 51);
+		TabLivre.add(lblVert);
 		/////////////
 		// Boutons //
 		/////////////
@@ -297,6 +307,10 @@ public class IHM {
 					textFieldEditeur.setText("");
 					textFieldAnnee.setText("");
 					textFieldPrenom.setText("");
+<<<<<<< HEAD
+=======
+
+>>>>>>> acbfb5ede4951de5c353f7c77fe939feb21c8341
 				} else {
 					lblVert.setText("Information(s) manquante(s)");
 					lblVert.setVisible(true);
@@ -305,12 +319,16 @@ public class IHM {
 
 			}
 
+<<<<<<< HEAD
+=======
+			// textFieldNom.setText(null);
+
+>>>>>>> acbfb5ede4951de5c353f7c77fe939feb21c8341
 		});
 
 		////////////////////////
 		// Liste des Emprunts //
 		////////////////////////
-
 	}
 
 	public void refreshScreen() {
@@ -318,7 +336,7 @@ public class IHM {
 		textFieldLivreID.setText("");
 		textFieldUsager.setText("");
 		textFieldDateEmprunt.setText("");
-		tableEmprunts.setModel(new DefaultTableModel(emprunts,
+		tableEmprunts.setModel(new DefaultTableModel(new Object[][] {},
 				new String[] { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" }));
 
 	}
