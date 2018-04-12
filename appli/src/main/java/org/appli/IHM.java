@@ -19,7 +19,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 public class IHM {
-
+	private final String[] ENTETES = { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" };
 	private JFrame frame;
 	private Controler controler;
 
@@ -40,9 +40,16 @@ public class IHM {
 	JButton btnAjoutLivre = new JButton("Enregistrer");
 
 	JTable tableEmprunts;
-	String[] entetes = { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" };
+
 	Object[][] emprunts = {};
 
+	/**
+	 * Launch the application.
+	 */
+
+	///////////////
+	// Actual App//
+	///////////////
 	public Object[][] getEmprunts() {
 		return emprunts;
 	}
@@ -59,14 +66,6 @@ public class IHM {
 	public JLabel getLblVert() {
 		return lblVert;
 	}
-
-	/**
-	 * Launch the application.
-	 */
-
-	///////////////
-	// Actual App//
-	///////////////
 
 	public JFrame getFrame() {
 		return frame;
@@ -321,8 +320,7 @@ public class IHM {
 		textFieldLivreID.setText("");
 		textFieldUsager.setText("");
 		textFieldDateEmprunt.setText("");
-		tableEmprunts.setModel(new DefaultTableModel(emprunts,
-				new String[] { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" }));
+		tableEmprunts.setModel(new DefaultTableModel(emprunts, ENTETES));
 
 	}
 }

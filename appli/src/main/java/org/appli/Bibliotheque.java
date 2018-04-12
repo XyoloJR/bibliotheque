@@ -36,27 +36,30 @@ public class Bibliotheque {
 		return reponse;
 	}
 
-	public void addEmprunt(Emprunt emprunt) {
-		emprunts.add(emprunt);
-
-	}
-
-	public void supEmprunt(Emprunt emprunt) {
-		emprunts.remove(emprunt);
-	}
-
-	public void affLivres() {
-		for (Livre livre : livres) {
-			System.out.println(livre);
-		}
-	}
-
-	public void affEmprunts() {
-		for (Emprunt emprunt : emprunts) {
-			System.out.println(emprunt);
-		}
-	}
-
+	/*
+	 * //Methodes de test
+	 *
+	 * public void addEmprunt(Emprunt emprunt) {
+	 * emprunts.add(emprunt);
+	 *
+	 * }
+	 *
+	 * public void supEmprunt(Emprunt emprunt) {
+	 * emprunts.remove(emprunt);
+	 * }
+	 *
+	 * public void affLivres() {
+	 * for (Livre livre : livres) {
+	 * System.out.println(livre);
+	 * }
+	 * }
+	 *
+	 * public void affEmprunts() {
+	 * for (Emprunt emprunt : emprunts) {
+	 * System.out.println(emprunt);
+	 * }
+	 * }
+	 */
 	public ArrayList<Livre> getLivres() {
 		return livres;
 	}

@@ -59,19 +59,6 @@ public class Controler {
 		bibliotheque.setEmprunts(connection.getEmprunts());
 	}
 
-	public Object[][] empruntsToArray() {
-		ArrayList<Emprunt> emprunts = bibliotheque.getEmprunts();
-		Object[][] tabEmprunts = new Object[emprunts.size()][4];
-		for (int i = 0; i < emprunts.size(); i++) {
-			Emprunt emprunt = emprunts.get(i);
-			tabEmprunts[i][0] = emprunt.getId();
-			tabEmprunts[i][1] = emprunt.getLivreId();
-			tabEmprunts[i][2] = emprunt.getUsager();
-			tabEmprunts[i][3] = emprunt.getDateEmprunt();
-		}
-		return tabEmprunts;
-	}
-
 	public Date stringToDate(String dateString) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		java.util.Date parsed;
@@ -84,6 +71,19 @@ public class Controler {
 			e.printStackTrace();
 		}
 		return sqlDate;
+	}
+
+	private Object[][] empruntsToArray() {
+		ArrayList<Emprunt> emprunts = bibliotheque.getEmprunts();
+		Object[][] tabEmprunts = new Object[emprunts.size()][4];
+		for (int i = 0; i < emprunts.size(); i++) {
+			Emprunt emprunt = emprunts.get(i);
+			tabEmprunts[i][0] = emprunt.getId();
+			tabEmprunts[i][1] = emprunt.getLivreId();
+			tabEmprunts[i][2] = emprunt.getUsager();
+			tabEmprunts[i][3] = emprunt.getDateEmprunt();
+		}
+		return tabEmprunts;
 	}
 
 	public Controler() {

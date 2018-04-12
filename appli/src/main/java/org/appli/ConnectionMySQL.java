@@ -1,9 +1,5 @@
 package org.appli;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -32,61 +28,6 @@ public class ConnectionMySQL {
 
 	private final static String GetLivresDispoRequest = "SELECT *"
 			+ "FROM livre WHERE id NOT IN (SELECT livre_id FROM emprunt)";
-
-	public void testConnect() throws ClassNotFoundException, FileNotFoundException, IOException {
-
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			// La connexion
-			connection = DriverManager.getConnection(URL, login, password);
-			System.out.println("connection à la base réussie");
-
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		} finally {
-			// On ferme la connexion
-			if (connection != null) {
-				try {
-					connection.close();
-				} catch (final SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-
-	}
-
-	public void init() {
-		ScriptRunner runner = new ScriptRunner(connection, false, false);
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			// La connexion
-			connection = DriverManager.getConnection(URL, login, password);
-			System.out.println("connection à la base réussie");
-			runner.runScript(new BufferedReader(new FileReader("../src/main/resources/bibliotheque.sql")));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			// On ferme la connexion
-			if (connection != null) {
-				try {
-					connection.close();
-				} catch (final SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	}
 
 	public void addLivre(Livre livre) {
 		PreparedStatement stmtLivre;
@@ -193,6 +134,43 @@ public class ConnectionMySQL {
 
 	}
 
+	public ArrayList<Livre> getLivres() {
+		ArrayList<Livre> list = new ArrayList<Livre>();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			// La connexion
+			connection = DriverManager.getConnection(URL, login, password);
+			System.out.println("connection à la base réussie");
+			Statement stmtEmprunts = connection.createStatement();
+			// Remplir la requête
+			ResultSet rs = stmtEmprunts.executeQuery(GetLivresRequest);
+			while (rs.next()) {
+				Livre livre = new Livre(rs.getInt("id"), rs.getString("titre"), rs.getInt("annee"),
+						rs.getString("auteur"), rs.getString("editeur"));
+				list.add(livre);
+				System.out.println();
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			// On ferme la connexion
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (final SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		return list;
+	}
+
 	public ArrayList<Emprunt> getEmprunts() {
 		ArrayList<Emprunt> list = new ArrayList<Emprunt>();
 		try {
@@ -231,77 +209,98 @@ public class ConnectionMySQL {
 		return list;
 	}
 
-	public ArrayList<Livre> getLivres() {
-		ArrayList<Livre> list = new ArrayList<Livre>();
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			// La connexion
-			connection = DriverManager.getConnection(URL, login, password);
-			System.out.println("connection à la base réussie");
-			Statement stmtEmprunts = connection.createStatement();
-			// Remplir la requête
-			ResultSet rs = stmtEmprunts.executeQuery(GetLivresRequest);
-			while (rs.next()) {
-				Livre livre = new Livre(rs.getInt("id"), rs.getString("titre"), rs.getInt("annee"),
-						rs.getString("auteur"), rs.getString("editeur"));
-				list.add(livre);
-				System.out.println();
-			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			// On ferme la connexion
-			if (connection != null) {
-				try {
-					connection.close();
-				} catch (final SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-		}
-		return list;
-	}
-
-	public ArrayList<Livre> getLivresDispo() {
-		ArrayList<Livre> list = new ArrayList<Livre>();
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			// La connexion
-			connection = DriverManager.getConnection(URL, login, password);
-			System.out.println("connection à la base réussie");
-			Statement stmtEmprunts = connection.createStatement();
-			// Remplir la requête
-			ResultSet rs = stmtEmprunts.executeQuery(GetLivresDispoRequest);
-			while (rs.next()) {
-				Livre livre = new Livre(rs.getInt("id"), rs.getString("titre"), rs.getInt("annee"),
-						rs.getString("auteur"), rs.getString("editeur"));
-				list.add(livre);
-				System.out.println();
-			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			// On ferme la connexion
-			if (connection != null) {
-				try {
-					connection.close();
-				} catch (final SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-		}
-		return list;
-	}
+	/*
+	 * public ArrayList<Livre> getLivresDispo() {
+	 * ArrayList<Livre> list = new ArrayList<Livre>();
+	 * try {
+	 * Class.forName("com.mysql.jdbc.Driver");
+	 * // La connexion
+	 * connection = DriverManager.getConnection(URL, login, password);
+	 * System.out.println("connection à la base réussie");
+	 * Statement stmtEmprunts = connection.createStatement();
+	 * // Remplir la requête
+	 * ResultSet rs = stmtEmprunts.executeQuery(GetLivresDispoRequest);
+	 * while (rs.next()) {
+	 * Livre livre = new Livre(rs.getInt("id"), rs.getString("titre"), rs.getInt("annee"),
+	 * rs.getString("auteur"), rs.getString("editeur"));
+	 * list.add(livre);
+	 * System.out.println();
+	 * }
+	 *
+	 * } catch (SQLException e) {
+	 * // TODO Auto-generated catch block
+	 * e.printStackTrace();
+	 * } catch (ClassNotFoundException e) {
+	 * // TODO Auto-generated catch block
+	 * e.printStackTrace();
+	 * } finally {
+	 * // On ferme la connexion
+	 * if (connection != null) {
+	 * try {
+	 * connection.close();
+	 * } catch (final SQLException e) {
+	 * e.printStackTrace();
+	 * }
+	 * }
+	 *
+	 * }
+	 * return list;
+	 * }
+	 *
+	 *
+	 * public void testConnect() throws ClassNotFoundException, FileNotFoundException, IOException {
+	 *
+	 * try {
+	 * Class.forName("com.mysql.jdbc.Driver");
+	 * // La connexion
+	 * connection = DriverManager.getConnection(URL, login, password);
+	 * System.out.println("connection à la base réussie");
+	 *
+	 * } catch (final SQLException e) {
+	 * e.printStackTrace();
+	 * } finally {
+	 * // On ferme la connexion
+	 * if (connection != null) {
+	 * try {
+	 * connection.close();
+	 * } catch (final SQLException e) {
+	 * e.printStackTrace();
+	 * }
+	 * }
+	 * }
+	 *
+	 * }
+	 *
+	 * public void init() {
+	 * ScriptRunner runner = new ScriptRunner(connection, false, false);
+	 * try {
+	 * Class.forName("com.mysql.jdbc.Driver");
+	 * // La connexion
+	 * connection = DriverManager.getConnection(URL, login, password);
+	 * System.out.println("connection à la base réussie");
+	 * runner.runScript(new BufferedReader(new FileReader("../src/main/resources/bibliotheque.sql")));
+	 * } catch (FileNotFoundException e) {
+	 * // TODO Auto-generated catch block
+	 * e.printStackTrace();
+	 * } catch (IOException e) {
+	 * // TODO Auto-generated catch block
+	 * e.printStackTrace();
+	 * } catch (SQLException e) {
+	 * // TODO Auto-generated catch block
+	 * e.printStackTrace();
+	 * } catch (ClassNotFoundException e) {
+	 * // TODO Auto-generated catch block
+	 * e.printStackTrace();
+	 * } finally {
+	 * // On ferme la connexion
+	 * if (connection != null) {
+	 * try {
+	 * connection.close();
+	 * } catch (final SQLException e) {
+	 * e.printStackTrace();
+	 * }
+	 * }
+	 * }
+	 * }
+	 */
 }
