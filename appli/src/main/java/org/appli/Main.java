@@ -10,6 +10,7 @@ public class Main {
 		Controler controler = new Controler();
 		Bibliotheque bibliotheque = controler.getBibliotheque();
 		ConnectionMySQL connectionMySQL = controler.getConnection();
+		connectionMySQL.init();
 
 		bibliotheque.setEmprunts(connectionMySQL.getEmprunts());
 

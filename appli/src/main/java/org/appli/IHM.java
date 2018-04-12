@@ -244,6 +244,7 @@ public class IHM {
 
 		btnAjoutLivre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 			}
 		});
 
