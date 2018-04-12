@@ -257,6 +257,8 @@ public class IHM {
 				} else {
 
 				}
+
+				controler.retour(tableEmprunts);
 			}
 		});
 		// Ajouter un livre
@@ -273,9 +275,19 @@ public class IHM {
 					textFieldEditeur.setText("");
 					textFieldAnnee.setText("");
 					textFieldPrenom.setText("");
+<<<<<<< HEAD
+				} else {
+					lblVert.setText("Information(s) manquante(s)");
+					lblVert.setVisible(true);
+					textFieldNom.setText("");
+				}
+
+			}
+=======
 					textFieldNom.setText("");
 
 				}
+>>>>>>> 162a9ce48cd20df4277cfa8d1a6e6e425a9245f5
 
 			}
 		});
@@ -286,7 +298,7 @@ public class IHM {
 
 	}
 
-	private void refreshScreen() {
+	public void refreshScreen() {
 
 		textFieldLivreID.setText("");
 		textFieldUsager.setText("");
