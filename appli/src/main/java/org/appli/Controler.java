@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.JLabel;
+import javax.swing.JTable;
 
 public class Controler {
 	private IHM ihm;
@@ -30,6 +31,20 @@ public class Controler {
 			bibliotheque.setEmprunts(connection.getEmprunts());
 		} else {
 			System.out.println("livre déjà emprunté");
+		}
+	}
+
+	public void retour(JTable tableEmprunts) {
+		for (int i = 0; i < tableEmprunts.getRowCount(); i++) {
+			if (tableEmprunts.getValueAt(i, 4) != null) {
+				String dateString = tableEmprunts.getValueAt(i, 4).toString();
+				if (!"".equals(dateString)) {
+					Date dateRetour = stringToDate(dateString);
+					rendre(bibliotheque.getEmprunts().get(i), dateRetour);
+					ihm.refreshScreen();
+
+				}
+			}
 		}
 	}
 

@@ -278,6 +278,8 @@ public class IHM {
 					lblRouge.setText("veuillez remplir tous les champs");
 					lblRouge.setVisible(true);
 				}
+
+				controler.retour(tableEmprunts);
 			}
 		});
 		// Ajouter un livre
@@ -295,15 +297,12 @@ public class IHM {
 					textFieldEditeur.setText("");
 					textFieldAnnee.setText("");
 					textFieldPrenom.setText("");
-<<<<<<< HEAD
 				} else {
 					lblVert.setText("Information(s) manquante(s)");
 					lblVert.setVisible(true);
-=======
 					textFieldNom.setText("");
-
->>>>>>> b6c9d31a33f4e1901a91b9b8f1fe343d8c5f56ae
 				}
+
 			}
 
 		});
@@ -314,7 +313,7 @@ public class IHM {
 
 	}
 
-	private void refreshScreen() {
+	public void refreshScreen() {
 
 		textFieldLivreID.setText("");
 		textFieldUsager.setText("");
