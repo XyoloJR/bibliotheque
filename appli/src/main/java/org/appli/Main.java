@@ -14,10 +14,9 @@ public class Main {
 		bibliotheque.setEmprunts(connectionMySQL.getEmprunts());
 
 		bibliotheque.setLivres(connectionMySQL.getLivres());
-		bibliotheque.affEmprunts();
-		// bibliotheque.affLivres();
+		// bibliotheque.affEmprunts();
+		bibliotheque.affLivres();
 
-		controler.addLivre("zrgserhg", 1845, "rstjj", "ghyytyj");
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		java.util.Date parsed;
 		try {
@@ -30,6 +29,9 @@ public class Main {
 		}
 		bibliotheque.affEmprunts();
 		// bibliotheque.affLivres();
+
+		bibliotheque.setLivres(connectionMySQL.getLivresDispo());
+		bibliotheque.affLivres();
 	}
 
 }

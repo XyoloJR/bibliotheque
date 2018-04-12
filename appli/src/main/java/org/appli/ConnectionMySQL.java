@@ -30,6 +30,9 @@ public class ConnectionMySQL {
 
 	private final static String UpdateEmpruntRequest = "UPDATE emprunt SET date_retour = ? WHERE id = ?";
 
+	private final static String GetLivresDispoRequest = "SELECT *"
+			+ "FROM livre WHERE id NOT IN (SELECT livre_id FROM emprunt)";
+
 	public void testConnect() throws ClassNotFoundException, FileNotFoundException, IOException {
 
 		try {
@@ -238,6 +241,43 @@ public class ConnectionMySQL {
 			Statement stmtEmprunts = connection.createStatement();
 			// Remplir la requête
 			ResultSet rs = stmtEmprunts.executeQuery(GetLivresRequest);
+			while (rs.next()) {
+				Livre livre = new Livre(rs.getInt("id"), rs.getString("titre"), rs.getInt("annee"),
+						rs.getString("auteur"), rs.getString("editeur"));
+				list.add(livre);
+				System.out.println();
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			// On ferme la connexion
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (final SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		return list;
+	}
+
+	public ArrayList<Livre> getLivresDispo() {
+		ArrayList<Livre> list = new ArrayList<Livre>();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			// La connexion
+			connection = DriverManager.getConnection(URL, login, password);
+			System.out.println("connection à la base réussie");
+			Statement stmtEmprunts = connection.createStatement();
+			// Remplir la requête
+			ResultSet rs = stmtEmprunts.executeQuery(GetLivresDispoRequest);
 			while (rs.next()) {
 				Livre livre = new Livre(rs.getInt("id"), rs.getString("titre"), rs.getInt("annee"),
 						rs.getString("auteur"), rs.getString("editeur"));
