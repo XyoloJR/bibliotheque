@@ -242,6 +242,12 @@ public class IHM {
 		lblRouge.setBounds(391, 11, 378, 68);
 		TabEmprunt.add(lblRouge);
 
+		JLabel lblVert = new JLabel("Livre déjà emprunté !!");
+		lblVert.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVert.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		lblVert.setForeground(Color.GREEN);
+		lblVert.setBounds(200, 407, 378, 51);
+		TabLivre.add(lblVert);
 		/////////////
 		// Boutons //
 		/////////////
@@ -275,7 +281,7 @@ public class IHM {
 					textFieldEditeur.setText("");
 					textFieldAnnee.setText("");
 					textFieldPrenom.setText("");
-<<<<<<< HEAD
+
 				} else {
 					lblVert.setText("Information(s) manquante(s)");
 					lblVert.setVisible(true);
@@ -283,19 +289,14 @@ public class IHM {
 				}
 
 			}
-=======
-					textFieldNom.setText("");
 
-				}
->>>>>>> 162a9ce48cd20df4277cfa8d1a6e6e425a9245f5
+			// textFieldNom.setText(null);
 
-			}
 		});
 
 		////////////////////////
 		// Liste des Emprunts //
 		////////////////////////
-
 	}
 
 	public void refreshScreen() {
