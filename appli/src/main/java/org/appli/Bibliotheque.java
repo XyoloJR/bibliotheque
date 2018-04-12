@@ -1,9 +1,10 @@
 package org.appli;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Bibliotheque {
+
+	public static int NEW_LIVRE_ID = -1;
 	private ArrayList<Livre> livres;
 	private ArrayList<Emprunt> emprunts;
 
@@ -12,15 +13,57 @@ public class Bibliotheque {
 		ArrayList<Emprunt> emprunts = new ArrayList<Emprunt>();
 	}
 
-	public void addLivre(String titre, int annee, String auteur, String editeur) {
+	public void addLivre(Livre livre) {
+		livres.add(livre);
 	}
 
-	public void addEmprunt(int id, int livre_id, String usager, Date date_emprunt) {
+	public boolean isDispo(int livreId) {
+		boolean reponse = true;
+		int empruntId = 0;
+		while (empruntId < emprunts.size() && reponse) {
+			if (emprunts.get(empruntId).getLivreId() == livreId) {
+				reponse = false;
+			}
+			empruntId++;
+		}
+		return reponse;
 	}
 
-	public void update() {
+	public void addEmprunt(Emprunt emprunt) {
+		emprunts.add(emprunt);
+
 	}
 
-	public void init() {
+	public void supEmprunt(Emprunt emprunt) {
+		emprunts.remove(emprunt);
 	}
+
+	public void affLivres() {
+		for (Livre livre : livres) {
+			System.out.println(livre);
+		}
+	}
+
+	public void affEmprunt() {
+		for (Emprunt emprunt : emprunts) {
+			System.out.println(emprunt);
+		}
+	}
+
+	public ArrayList<Livre> getLivres() {
+		return livres;
+	}
+
+	public void setLivres(ArrayList<Livre> livres) {
+		this.livres = livres;
+	}
+
+	public ArrayList<Emprunt> getEmprunts() {
+		return emprunts;
+	}
+
+	public void setEmprunts(ArrayList<Emprunt> emprunts) {
+		this.emprunts = emprunts;
+	}
+
 }

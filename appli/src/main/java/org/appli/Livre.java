@@ -55,4 +55,9 @@ public class Livre {
 		this.editeur = editeur;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return id + ", " + titre + ", " + annee + ", " + auteur + ", " + editeur;
+	}
 }

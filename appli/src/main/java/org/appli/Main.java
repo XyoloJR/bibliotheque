@@ -1,15 +1,21 @@
 package org.appli;
 
-import java.util.ArrayList;
-
 public class Main {
 
 	public static void main(String[] args) {
 		Controler controler = new Controler();
+		Bibliotheque bibliotheque = controler.getBibliotheque();
+		ConnectionMySQL connectionMySQL = controler.getConnection();
 
-		ArrayList<Emprunt> list;
-		list = controler.getConnection().getEmprunts();
+		bibliotheque.setEmprunts(connectionMySQL.getEmprunts());
 
+		bibliotheque.setLivres(connectionMySQL.getLivres());
+		// bibliotheque.affEmprunt();
+		bibliotheque.affLivres();
+
+		controler.addLivre("zrgserhg", 1845, "rstjj", "ghyytyj");
+		bibliotheque.setLivres(connectionMySQL.getLivres());
+		bibliotheque.affLivres();
 	}
 
 }

@@ -49,8 +49,8 @@ init() : void
     <coordinates>
       <x>40</x>
       <y>40</y>
-      <w>210</w>
-      <h>190</h>
+      <w>240</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>ConnectionMySQL
 --
@@ -59,7 +59,12 @@ init() : void
 -password: String
 -connecteur: Connection
 --
-
++testConnect(): void
++init() : void
++addLivre(Livre) : void
++addEmprunt(Emprunt) : void
++getLivres() : ArrayList&lt;Livre&gt;
++getEmprunts() : ArrayList&lt;Emprunt&gt;
 --
 </panel_attributes>
     <additional_attributes/>
@@ -126,7 +131,8 @@ rendre(Date) : void
     <panel_attributes>Controler
 --
 -bibliotheque : Bibliotheque
-
+-connection : ConnectionMySQL
+-ihm : IHM
 --
 +addLivre()
 +addEmprunt()
@@ -173,13 +179,13 @@ m2=1..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
+      <x>270</x>
       <y>140</y>
-      <w>120</w>
+      <w>90</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

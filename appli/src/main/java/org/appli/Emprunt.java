@@ -9,15 +9,11 @@ public class Emprunt {
 	private Date dateEmprunt;
 	private Date dateRetour;
 
-	public Emprunt(int id, int livre_id, String usager, Date date_emprunt) {
+	public Emprunt(int id, int livreId, String usager, Date dateEmprunt) {
 		this.id = id;
-		livreId = livre_id;
+		this.livreId = livreId;
 		this.usager = usager;
-		dateEmprunt = date_emprunt;
-	}
-
-	public void rendre(Date date_retour) {
-
+		this.dateEmprunt = dateEmprunt;
 	}
 
 	public int getId() {
@@ -60,4 +56,9 @@ public class Emprunt {
 		this.dateRetour = dateRetour;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "" + id + ", " + livreId + ", " + usager + ", " + dateEmprunt;
+	}
 }
