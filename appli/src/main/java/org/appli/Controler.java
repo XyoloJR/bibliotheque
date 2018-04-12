@@ -29,6 +29,9 @@ public class Controler {
 			Emprunt emprunt = new Emprunt(Bibliotheque.NEW_EMPRUNT_ID, livreId, usager, dateEmprunt);
 			connection.addEmprunt(emprunt);
 			bibliotheque.setEmprunts(connection.getEmprunts());
+			ihm.setEmprunts(empruntsToArray());
+			ihm.getLblRouge().setText("le livre est bien emprunté");
+			ihm.getLblRouge().setVisible(true);
 		} else {
 			System.out.println("livre déjà emprunté");
 		}
@@ -45,7 +48,6 @@ public class Controler {
 					Date dateRetour = stringToDate(dateString);
 					rendre(bibliotheque.getEmprunts().get(i), dateRetour);
 					ihm.setEmprunts(empruntsToArray());
-
 				}
 			}
 		}

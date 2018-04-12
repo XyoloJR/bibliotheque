@@ -263,11 +263,12 @@ public class IHM {
 		lblRouge.setVisible(false);
 		TabEmprunt.add(lblRouge);
 
-		JLabel lblVert = new JLabel("Livre déjà emprunté !!");
+		lblVert = new JLabel("Livre déjà emprunté !!");
 		lblVert.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVert.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblVert.setForeground(Color.GREEN);
 		lblVert.setBounds(200, 407, 378, 51);
+		lblVert.setVisible(false);
 		TabLivre.add(lblVert);
 		/////////////
 		// Boutons //
@@ -282,14 +283,12 @@ public class IHM {
 					String usager = textFieldUsager.getText();
 					Date dateEmprunt = controler.stringToDate(textFieldDateEmprunt.getText());
 					controler.addEmprunt(livreId, usager, dateEmprunt);
-					lblRouge.setVisible(false);
 
 				} else {
 					lblRouge.setText("veuillez remplir tous les champs");
 					lblRouge.setVisible(true);
+					controler.retour(tableEmprunts);
 				}
-
-				controler.retour(tableEmprunts);
 			}
 		});
 		// Ajouter un livre
@@ -307,10 +306,7 @@ public class IHM {
 					textFieldEditeur.setText("");
 					textFieldAnnee.setText("");
 					textFieldPrenom.setText("");
-<<<<<<< HEAD
-=======
 
->>>>>>> acbfb5ede4951de5c353f7c77fe939feb21c8341
 				} else {
 					lblVert.setText("Information(s) manquante(s)");
 					lblVert.setVisible(true);
@@ -319,11 +315,6 @@ public class IHM {
 
 			}
 
-<<<<<<< HEAD
-=======
-			// textFieldNom.setText(null);
-
->>>>>>> acbfb5ede4951de5c353f7c77fe939feb21c8341
 		});
 
 		////////////////////////
@@ -336,7 +327,7 @@ public class IHM {
 		textFieldLivreID.setText("");
 		textFieldUsager.setText("");
 		textFieldDateEmprunt.setText("");
-		tableEmprunts.setModel(new DefaultTableModel(new Object[][] {},
+		tableEmprunts.setModel(new DefaultTableModel(emprunts,
 				new String[] { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" }));
 
 	}
