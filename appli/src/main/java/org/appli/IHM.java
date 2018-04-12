@@ -25,8 +25,8 @@ public class IHM {
 	JTextField textFieldTitre;
 	JTextField textFieldEditeur;
 	JTextField textFieldAnnee;
-	JTextField textFieldNom;
 	JTextField textFieldPrenom;
+	JTextField textFieldNom;
 	JTextField textFieldLivreID;
 	JTextField textFieldUsager;
 	JTextField textFieldDateEmprunt;
@@ -135,9 +135,9 @@ public class IHM {
 		lblNom.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNom.setFont(new Font("Arial", Font.BOLD, 18));
 
-		textFieldNom = new JTextField();
-		textFieldNom.setBounds(233, 311, 383, 40);
-		textFieldNom.setColumns(10);
+		textFieldPrenom = new JTextField();
+		textFieldPrenom.setBounds(233, 311, 383, 40);
+		textFieldPrenom.setColumns(10);
 
 		JLabel lblPrenom = new JLabel("Prénom");
 		lblPrenom.setBounds(129, 315, 100, 40);
@@ -145,9 +145,9 @@ public class IHM {
 		lblPrenom.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPrenom.setFont(new Font("Arial", Font.BOLD, 18));
 
-		textFieldPrenom = new JTextField();
-		textFieldPrenom.setBounds(233, 366, 383, 40);
-		textFieldPrenom.setColumns(10);
+		textFieldNom = new JTextField();
+		textFieldNom.setBounds(233, 366, 383, 40);
+		textFieldNom.setColumns(10);
 
 		btnAjoutLivre = new JButton("Enregistrer");
 		btnAjoutLivre.setForeground(Color.DARK_GRAY);
@@ -162,10 +162,10 @@ public class IHM {
 		labelLivre.setFont(new Font("Arial", Font.BOLD, 20));
 		TabLivre.setLayout(null);
 		TabLivre.add(lblNom);
-		TabLivre.add(textFieldPrenom);
+		TabLivre.add(textFieldNom);
 		TabLivre.add(lblPrenom);
 		TabLivre.add(lblAuteur);
-		TabLivre.add(textFieldNom);
+		TabLivre.add(textFieldPrenom);
 		TabLivre.add(textFieldEditeur);
 		TabLivre.add(textFieldAnnee);
 		TabLivre.add(lblAnnee);
@@ -268,8 +268,9 @@ public class IHM {
 					textFieldTitre.setText(null);
 					textFieldEditeur.setText("");
 					textFieldAnnee.setText("");
-					textFieldNom.setText("");
 					textFieldPrenom.setText("");
+					textFieldNom.setText("");
+
 				}
 
 			}
