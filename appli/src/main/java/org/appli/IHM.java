@@ -9,11 +9,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
 public class IHM {
 
@@ -30,8 +32,7 @@ public class IHM {
 
 	JButton btnUpdateEmprunts = new JButton("Enregistrer");
 	JButton btnAjoutLivre = new JButton("Enregistrer");
-
-	JList<String> listEmprunts;
+	JTable tableEmprunts;
 
 	/**
 	 * Launch the application.
@@ -49,16 +50,18 @@ public class IHM {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	///////////////
+	// Actual App//
+	///////////////
+
 	public IHM() {
 		initialize();
+		refreshScreen();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	//////////////////////////////////////////
+	// Initialize the contents of the frame.//
+	//////////////////////////////////////////
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 800, 600);
@@ -83,6 +86,12 @@ public class IHM {
 		lblTitre.setForeground(Color.WHITE);
 		lblTitre.setHorizontalAlignment(SwingConstants.LEFT);
 		lblTitre.setFont(new Font("Arial", Font.BOLD, 18));
+
+		btnAjoutLivre = new JButton("Enregistrer");
+		btnAjoutLivre.setForeground(Color.DARK_GRAY);
+		btnAjoutLivre.setBackground(Color.LIGHT_GRAY);
+		btnAjoutLivre.setBounds(10, 460, 760, 60);
+		btnAjoutLivre.setFont(new Font("Arial", Font.BOLD, 30));
 
 		textFieldTitre = new JTextField();
 		textFieldTitre.setBounds(233, 90, 383, 40);
@@ -166,15 +175,8 @@ public class IHM {
 		tabbedPane.addTab("Gestion des Emprunts", null, TabEmprunt, null);
 		TabEmprunt.setLayout(null);
 
-		listEmprunts = new JList();
-		listEmprunts.setBounds(10, 150, 760, 300);
-		TabEmprunt.add(listEmprunts);
-
 		btnUpdateEmprunts = new JButton("Enregistrer");
-		btnUpdateEmprunts.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+
 		btnUpdateEmprunts.setForeground(Color.DARK_GRAY);
 		btnUpdateEmprunts.setFont(new Font("Arial", Font.BOLD, 30));
 		btnUpdateEmprunts.setBounds(10, 460, 760, 60);
@@ -216,27 +218,49 @@ public class IHM {
 		labelDateEmprunt.setBounds(391, 87, 155, 40);
 		TabEmprunt.add(labelDateEmprunt);
 
+		tableEmprunts = new JTable();
+		tableEmprunts.setBorder(new LineBorder(new Color(51, 51, 51), 3, true));
+		tableEmprunts.setCellSelectionEnabled(true);
+		tableEmprunts.setModel(new DefaultTableModel(new Object[][] {},
+				new String[] { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" }));
+		tableEmprunts.getColumnModel().getColumn(0).setPreferredWidth(79);
+		tableEmprunts.getColumnModel().getColumn(1).setPreferredWidth(112);
+		tableEmprunts.setBounds(10, 138, 759, 310);
+		TabEmprunt.add(tableEmprunts);
+
 		/////////////
 		// Boutons //
 		/////////////
 
 		// Emprunts
-
+		btnUpdateEmprunts.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		// Ajouter un livre
 
-		btnAjoutLivre = new JButton("Enregistrer");
 		btnAjoutLivre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnAjoutLivre.setForeground(Color.DARK_GRAY);
-		btnAjoutLivre.setBackground(Color.LIGHT_GRAY);
-		btnAjoutLivre.setBounds(10, 460, 760, 60);
-		btnAjoutLivre.setFont(new Font("Arial", Font.BOLD, 30));
 
 		////////////////////////
 		// Liste des Emprunts //
 		////////////////////////
+
+	}
+
+	private void refreshScreen() {
+		textFieldTitre.setText("");
+		textFieldTitre.setText("");
+		textFieldTitre.setText("");
+		textFieldEditeur.setText("");
+		textFieldAnnee.setText("");
+		textFieldNom.setText("");
+		textFieldPrenom.setText("");
+		textFieldLivreID.setText("");
+		textFieldUsager.setText("");
+		textFieldDateEmprunt.setText("");
 
 	}
 }
