@@ -230,6 +230,14 @@ public class IHM {
 		tableEmprunts.setBounds(10, 138, 759, 310);
 
 		TabEmprunt.add(tableEmprunts);
+
+		JLabel lblRouge = new JLabel("Livre déjà emprunté !!");
+		lblRouge.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRouge.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		lblRouge.setForeground(Color.RED);
+		lblRouge.setBounds(391, 11, 378, 68);
+		TabEmprunt.add(lblRouge);
+
 		/////////////
 		// Boutons //
 		/////////////

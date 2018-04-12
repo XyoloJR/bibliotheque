@@ -75,14 +75,6 @@ public class Controler {
 
 	}
 
-	public IHM getIhm() {
-		return ihm;
-	}
-
-	public void setIhm(IHM ihm) {
-		this.ihm = ihm;
-	}
-
 	public ConnectionMySQL getConnection() {
 		return connection;
 	}
@@ -97,6 +89,14 @@ public class Controler {
 
 	public void setBibliotheque(Bibliotheque bibliotheque) {
 		this.bibliotheque = bibliotheque;
+	}
+
+	public IHM getIhm() {
+		return ihm;
+	}
+
+	public void setIhm(IHM ihm) {
+		this.ihm = ihm;
 	}
 
 }
