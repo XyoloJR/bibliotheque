@@ -54,6 +54,10 @@ public class IHM {
 	// Actual App//
 	///////////////
 
+	public JFrame getFrame() {
+		return frame;
+	}
+
 	public IHM() {
 		initialize();
 		refreshScreen();

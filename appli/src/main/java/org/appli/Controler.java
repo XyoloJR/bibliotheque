@@ -1,9 +1,10 @@
 package org.appli;
 
+import java.awt.EventQueue;
 import java.sql.Date;
 
 public class Controler {
-	private IHM ihm = new IHM();
+	private IHM ihm;
 	private ConnectionMySQL connection = new ConnectionMySQL();
 	private Bibliotheque bibliotheque = new Bibliotheque();
 
@@ -26,6 +27,20 @@ public class Controler {
 	public void rendre(Emprunt emprunt, Date dateRetour) {
 		connection.updateEmprunt(emprunt, dateRetour);
 		bibliotheque.supEmprunt(emprunt);
+	}
+
+	public Controler() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ihm = new IHM();
+					ihm.getFrame().setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+
 	}
 
 	public IHM getIhm() {
