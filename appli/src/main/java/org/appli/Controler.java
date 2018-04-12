@@ -5,8 +5,8 @@ import java.sql.Date;
 
 public class Controler {
 	private IHM ihm;
-	private ConnectionMySQL connection = new ConnectionMySQL();
-	private Bibliotheque bibliotheque = new Bibliotheque();
+	private ConnectionMySQL connection;
+	private Bibliotheque bibliotheque;
 
 	public void addLivre(String titre, int annee, String auteur, String editeur) {
 		Livre livre = new Livre(Bibliotheque.NEW_LIVRE_ID, titre, annee, auteur, editeur);
@@ -30,10 +30,12 @@ public class Controler {
 	}
 
 	public Controler() {
+		connection = new ConnectionMySQL();
+		bibliotheque = new Bibliotheque(connection.getLivres(), connection.getEmprunts());
+		ihm = new IHM(this);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ihm = new IHM();
 					ihm.getFrame().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

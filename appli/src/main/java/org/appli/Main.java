@@ -3,6 +3,7 @@ package org.appli;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -10,9 +11,21 @@ public class Main {
 		Controler controler = new Controler();
 		Bibliotheque bibliotheque = controler.getBibliotheque();
 		ConnectionMySQL connectionMySQL = controler.getConnection();
-		connectionMySQL.init();
+		// connectionMySQL.init();
 
 		bibliotheque.setEmprunts(connectionMySQL.getEmprunts());
+
+		ArrayList<Emprunt> emprunts = bibliotheque.getEmprunts();
+		Object[][] tabEmprunts = new Object[emprunts.size()][4];
+		for (int i = 0; i < emprunts.size(); i++) {
+			Emprunt emprunt = emprunts.get(i);
+			tabEmprunts[i][0] = emprunt.getId();
+			tabEmprunts[i][1] = emprunt.getLivreId();
+			tabEmprunts[i][2] = emprunt.getUsager();
+			tabEmprunts[i][3] = emprunt.getDateEmprunt();
+		}
+
+		controler.getIhm().emprunts = tabEmprunts;
 
 		bibliotheque.setLivres(connectionMySQL.getLivres());
 		// bibliotheque.affEmprunts();
