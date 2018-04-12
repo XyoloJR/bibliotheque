@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -214,22 +215,25 @@ public class IHM {
 
 		textFieldDateEmprunt = new JTextField();
 		textFieldDateEmprunt.setColumns(10);
-		textFieldDateEmprunt.setBounds(548, 90, 221, 40);
+		textFieldDateEmprunt.setBounds(548, 90, 222, 40);
 		TabEmprunt.add(textFieldDateEmprunt);
 
-		JLabel labelDateEmprunt = new JLabel("Date d'emprunt");
+		JLabel labelDateEmprunt = new JLabel("Date d'Emprunt");
 		labelDateEmprunt.setForeground(Color.WHITE);
 		labelDateEmprunt.setHorizontalAlignment(SwingConstants.CENTER);
 		labelDateEmprunt.setFont(new Font("Arial", Font.BOLD, 18));
 		labelDateEmprunt.setBounds(391, 90, 155, 40);
 		TabEmprunt.add(labelDateEmprunt);
 
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 138, 759, 310);
+		TabEmprunt.add(scrollPane);
+
 		tableEmprunts = new JTable();
+		scrollPane.setViewportView(tableEmprunts);
+		tableEmprunts.setSurrendersFocusOnKeystroke(true);
 		tableEmprunts.setBorder(new LineBorder(new Color(51, 51, 51), 3, true));
 		tableEmprunts.setCellSelectionEnabled(true);
-		tableEmprunts.setBounds(10, 138, 759, 310);
-
-		TabEmprunt.add(tableEmprunts);
 
 		JLabel lblRouge = new JLabel("Livre déjà emprunté !!");
 		lblRouge.setHorizontalAlignment(SwingConstants.CENTER);
@@ -287,7 +291,7 @@ public class IHM {
 		textFieldLivreID.setText("");
 		textFieldUsager.setText("");
 		textFieldDateEmprunt.setText("");
-		tableEmprunts.setModel(new DefaultTableModel(emprunts,
+		tableEmprunts.setModel(new DefaultTableModel(new Object[][] {},
 				new String[] { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" }));
 
 	}
