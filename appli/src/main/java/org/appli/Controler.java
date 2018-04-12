@@ -9,14 +9,15 @@ public class Controler {
 
 	public void addLivre(String titre, int annee, String auteur, String editeur) {
 		Livre livre = new Livre(Bibliotheque.NEW_LIVRE_ID, titre, annee, auteur, editeur);
-		bibliotheque.addLivre(livre);
 		connection.addLivre(livre);
+		bibliotheque.setLivres(connection.getLivres());
 	}
 
-	public void addEmprunt(int id, int livreId, String usager, Date dateEmprunt) {
+	public void addEmprunt(int livreId, String usager, Date dateEmprunt) {
 		if (bibliotheque.isDispo(livreId)) {
-			Emprunt emprunt = new Emprunt(id, livreId, usager, dateEmprunt);
-			bibliotheque.addEmprunt(emprunt);
+			Emprunt emprunt = new Emprunt(Bibliotheque.NEW_EMPRUMT_ID, livreId, usager, dateEmprunt);
+			connection.addEmprunt(emprunt);
+			bibliotheque.setEmprunts(connection.getEmprunts());
 		} else {
 			System.out.println("livre déjà emprunté");
 		}

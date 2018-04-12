@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Bibliotheque {
 
 	public static int NEW_LIVRE_ID = -1;
+	public static int NEW_EMPRUMT_ID = -1;
 	private ArrayList<Livre> livres;
 	private ArrayList<Emprunt> emprunts;
 
@@ -44,7 +45,7 @@ public class Bibliotheque {
 		}
 	}
 
-	public void affEmprunt() {
+	public void affEmprunts() {
 		for (Emprunt emprunt : emprunts) {
 			System.out.println(emprunt);
 		}
