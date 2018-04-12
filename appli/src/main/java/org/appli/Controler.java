@@ -6,6 +6,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
+
 public class Controler {
 	private IHM ihm;
 	private ConnectionMySQL connection;
@@ -15,6 +17,10 @@ public class Controler {
 		Livre livre = new Livre(Bibliotheque.NEW_LIVRE_ID, titre, annee, auteur, editeur);
 		connection.addLivre(livre);
 		bibliotheque.setLivres(connection.getLivres());
+		JLabel lblVert = ihm.getLblVert();
+		lblVert.setText("le livre " + titre + " est bien ajouté");
+		lblVert.setVisible(true);
+
 	}
 
 	public void addEmprunt(int livreId, String usager, Date dateEmprunt) {
@@ -50,7 +56,7 @@ public class Controler {
 		java.util.Date parsed;
 		Date sqlDate = null;
 		try {
-			parsed = format.parse("dateString");
+			parsed = format.parse(dateString);
 			sqlDate = new Date(parsed.getTime());
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
