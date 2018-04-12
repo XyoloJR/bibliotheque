@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -236,7 +237,14 @@ public class IHM {
 		// Emprunts
 		btnUpdateEmprunts.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int livreId = Integer.valueOf(textFieldLivreID.getText());
+				String usager = textFieldUsager.getText();
+				Date dateEmprunt = controler.stringToDate(textFieldDateEmprunt.getText());
+				if (livreId > 0 && usager != null && dateEmprunt != null) {
+					controler.addEmprunt(livreId, usager, dateEmprunt);
+				} else {
 
+				}
 			}
 		});
 		// Ajouter un livre

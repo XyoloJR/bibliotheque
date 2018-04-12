@@ -2,6 +2,8 @@ package org.appli;
 
 import java.awt.EventQueue;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class Controler {
@@ -41,6 +43,20 @@ public class Controler {
 			tabEmprunts[i][3] = emprunt.getDateEmprunt();
 		}
 		return tabEmprunts;
+	}
+
+	public Date stringToDate(String dateString) {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		java.util.Date parsed;
+		Date sqlDate = null;
+		try {
+			parsed = format.parse("dateString");
+			sqlDate = new Date(parsed.getTime());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return sqlDate;
 	}
 
 	public Controler() {
