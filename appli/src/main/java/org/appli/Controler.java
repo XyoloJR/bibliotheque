@@ -25,7 +25,7 @@ public class Controler {
 
 	public void addEmprunt(int livreId, String usager, Date dateEmprunt) {
 		if (bibliotheque.isDispo(livreId)) {
-			Emprunt emprunt = new Emprunt(Bibliotheque.NEW_EMPRUMT_ID, livreId, usager, dateEmprunt);
+			Emprunt emprunt = new Emprunt(Bibliotheque.NEW_EMPRUNT_ID, livreId, usager, dateEmprunt);
 			connection.addEmprunt(emprunt);
 			bibliotheque.setEmprunts(connection.getEmprunts());
 		} else {
