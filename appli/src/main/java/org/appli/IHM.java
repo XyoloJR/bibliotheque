@@ -32,7 +32,10 @@ public class IHM {
 
 	JButton btnUpdateEmprunts = new JButton("Enregistrer");
 	JButton btnAjoutLivre = new JButton("Enregistrer");
+
 	JTable tableEmprunts;
+	String[] entetes = { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" };
+	Object[][] emprunts = {};
 
 	/**
 	 * Launch the application.
@@ -186,48 +189,44 @@ public class IHM {
 		lblIdDuLivre.setForeground(Color.WHITE);
 		lblIdDuLivre.setHorizontalAlignment(SwingConstants.LEFT);
 		lblIdDuLivre.setFont(new Font("Arial", Font.BOLD, 18));
-		lblIdDuLivre.setBounds(10, 27, 127, 40);
+		lblIdDuLivre.setBounds(10, 30, 128, 40);
 		TabEmprunt.add(lblIdDuLivre);
 
 		textFieldLivreID = new JTextField();
 		textFieldLivreID.setColumns(10);
-		textFieldLivreID.setBounds(141, 27, 240, 40);
+		textFieldLivreID.setBounds(141, 30, 240, 40);
 		TabEmprunt.add(textFieldLivreID);
 
 		JLabel labelUsager = new JLabel("Usager");
 		labelUsager.setForeground(Color.WHITE);
 		labelUsager.setHorizontalAlignment(SwingConstants.LEFT);
 		labelUsager.setFont(new Font("Arial", Font.BOLD, 18));
-		labelUsager.setBounds(10, 87, 127, 40);
+		labelUsager.setBounds(10, 87, 128, 40);
 		TabEmprunt.add(labelUsager);
 
 		textFieldUsager = new JTextField();
 		textFieldUsager.setColumns(10);
-		textFieldUsager.setBounds(141, 87, 240, 40);
+		textFieldUsager.setBounds(141, 90, 240, 40);
 		TabEmprunt.add(textFieldUsager);
 
 		textFieldDateEmprunt = new JTextField();
 		textFieldDateEmprunt.setColumns(10);
-		textFieldDateEmprunt.setBounds(548, 87, 221, 40);
+		textFieldDateEmprunt.setBounds(548, 90, 221, 40);
 		TabEmprunt.add(textFieldDateEmprunt);
 
 		JLabel labelDateEmprunt = new JLabel("Date d'emprunt");
 		labelDateEmprunt.setForeground(Color.WHITE);
 		labelDateEmprunt.setHorizontalAlignment(SwingConstants.CENTER);
 		labelDateEmprunt.setFont(new Font("Arial", Font.BOLD, 18));
-		labelDateEmprunt.setBounds(391, 87, 155, 40);
+		labelDateEmprunt.setBounds(391, 90, 155, 40);
 		TabEmprunt.add(labelDateEmprunt);
 
 		tableEmprunts = new JTable();
 		tableEmprunts.setBorder(new LineBorder(new Color(51, 51, 51), 3, true));
 		tableEmprunts.setCellSelectionEnabled(true);
-		tableEmprunts.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "ID Emprunt", "Livre", "Usager", "Date Emprunt", "Date Retour" }));
-		tableEmprunts.getColumnModel().getColumn(0).setPreferredWidth(79);
-		tableEmprunts.getColumnModel().getColumn(1).setPreferredWidth(112);
 		tableEmprunts.setBounds(10, 138, 759, 310);
-		TabEmprunt.add(tableEmprunts);
 
+		TabEmprunt.add(tableEmprunts);
 		/////////////
 		// Boutons //
 		/////////////
@@ -261,6 +260,8 @@ public class IHM {
 		textFieldLivreID.setText("");
 		textFieldUsager.setText("");
 		textFieldDateEmprunt.setText("");
+
+		tableEmprunts.setModel(new DefaultTableModel(emprunts, entetes));
 
 	}
 }
