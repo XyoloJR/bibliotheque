@@ -88,7 +88,7 @@ public class IHM {
 		tabbedPane.setEnabledAt(0, true);
 
 		JLabel lblTitre = new JLabel("Titre");
-		lblTitre.setBounds(129, 90, 100, 40);
+		lblTitre.setBounds(85, 85, 100, 40);
 		lblTitre.setForeground(Color.WHITE);
 		lblTitre.setHorizontalAlignment(SwingConstants.LEFT);
 		lblTitre.setFont(new Font("Arial", Font.BOLD, 18));
@@ -100,53 +100,53 @@ public class IHM {
 		btnAjoutLivre.setFont(new Font("Arial", Font.BOLD, 30));
 
 		textFieldTitre = new JTextField();
-		textFieldTitre.setBounds(233, 90, 383, 40);
+		textFieldTitre.setBounds(185, 85, 400, 40);
 		textFieldTitre.setColumns(10);
 
 		JLabel lblEditeur = new JLabel("Editeur");
-		lblEditeur.setBounds(129, 141, 100, 40);
+		lblEditeur.setBounds(85, 140, 100, 40);
 		lblEditeur.setForeground(Color.WHITE);
 		lblEditeur.setHorizontalAlignment(SwingConstants.LEFT);
 		lblEditeur.setFont(new Font("Arial", Font.BOLD, 18));
 
 		textFieldEditeur = new JTextField();
-		textFieldEditeur.setBounds(233, 144, 383, 40);
+		textFieldEditeur.setBounds(186, 140, 400, 40);
 		textFieldEditeur.setColumns(10);
 
 		JLabel lblAnnee = new JLabel("Année");
-		lblAnnee.setBounds(129, 196, 100, 40);
+		lblAnnee.setBounds(85, 195, 100, 40);
 		lblAnnee.setForeground(Color.WHITE);
 		lblAnnee.setHorizontalAlignment(SwingConstants.LEFT);
 		lblAnnee.setFont(new Font("Arial", Font.BOLD, 18));
 
 		textFieldAnnee = new JTextField();
-		textFieldAnnee.setBounds(233, 198, 383, 40);
+		textFieldAnnee.setBounds(185, 195, 400, 40);
 		textFieldAnnee.setColumns(10);
 
 		JLabel lblAuteur = new JLabel("Auteur");
-		lblAuteur.setBounds(233, 261, 377, 40);
+		lblAuteur.setBounds(186, 257, 400, 40);
 		lblAuteur.setForeground(Color.WHITE);
 		lblAuteur.setFont(new Font("Arial", Font.BOLD, 20));
 		lblAuteur.setHorizontalAlignment(SwingConstants.CENTER);
 
 		JLabel lblNom = new JLabel("Nom");
-		lblNom.setBounds(129, 366, 100, 40);
+		lblNom.setBounds(85, 365, 100, 40);
 		lblNom.setForeground(Color.WHITE);
 		lblNom.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNom.setFont(new Font("Arial", Font.BOLD, 18));
 
 		textFieldPrenom = new JTextField();
-		textFieldPrenom.setBounds(233, 311, 383, 40);
+		textFieldPrenom.setBounds(185, 315, 400, 40);
 		textFieldPrenom.setColumns(10);
 
 		JLabel lblPrenom = new JLabel("Prénom");
-		lblPrenom.setBounds(129, 315, 100, 40);
+		lblPrenom.setBounds(85, 315, 100, 40);
 		lblPrenom.setForeground(Color.WHITE);
 		lblPrenom.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPrenom.setFont(new Font("Arial", Font.BOLD, 18));
 
 		textFieldNom = new JTextField();
-		textFieldNom.setBounds(233, 366, 383, 40);
+		textFieldNom.setBounds(186, 365, 400, 40);
 		textFieldNom.setColumns(10);
 
 		btnAjoutLivre = new JButton("Enregistrer");
@@ -156,7 +156,7 @@ public class IHM {
 		btnAjoutLivre.setFont(new Font("Arial", Font.BOLD, 30));
 
 		JLabel lblLivre = new JLabel("Livre");
-		lblLivre.setBounds(233, 39, 383, 40);
+		lblLivre.setBounds(186, 35, 400, 40);
 		lblLivre.setForeground(Color.WHITE);
 		lblLivre.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLivre.setFont(new Font("Arial", Font.BOLD, 20));
